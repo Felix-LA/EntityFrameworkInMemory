@@ -1,6 +1,7 @@
 ﻿using EntityFrameworkInMemory.DataBaseContext;
 using EntityFrameworkInMemory.DataModel;
 using EntityFrameworkInMemory.Models;
+using EntityFrameworkInMemory.Repositorios.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Routing;
@@ -17,11 +18,14 @@ namespace EntityFrameworkInMemory.Controllers
     [Route("api/[controller]")]
     public class ProductController : ControllerBase
     {
+        public readonly IProductRepositorio _productRepository;
+
         private readonly DBContext _dbContext;
 
-        public ProductController(DBContext dBContext)
+        public ProductController(DBContext dBContext, IProductRepositorio productRepositorio)
         {
-                _dbContext = dBContext;
+            _dbContext = dBContext;
+            _productRepository = productRepositorio;
         }
 
 
@@ -29,7 +33,8 @@ namespace EntityFrameworkInMemory.Controllers
         //[Route("API/GetProduct")]
         public async Task<IActionResult> GetProductList()
         {
-            return Ok(await _dbContext.Products.ToListAsync());
+            List<ProductDataModel> products = await _productRepository.BuscarTodosUsuarios();
+            return Ok(products);
         }
         
 
