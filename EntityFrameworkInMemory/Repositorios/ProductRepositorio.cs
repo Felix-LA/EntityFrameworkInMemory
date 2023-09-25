@@ -18,5 +18,10 @@ namespace EntityFrameworkInMemory.Repositorios
         {
             return await _dBContext.Products.ToListAsync();
         }
+
+        public async Task<ProductDataModel> BuscarPorNome(string name)
+        {
+            return await _dBContext.Products.FirstOrDefaultAsync(x => x.Name.Equals(name));
+        }
     }
 }

@@ -54,5 +54,14 @@ namespace EntityFrameworkInMemory.Controllers
 
             return Ok(product);
         }
+
+
+
+        [HttpGet]
+        public async Task<IActionResult> GetProductListForName(string name)
+        {
+            ProductDataModel products = await _productRepository.BuscarPorNome(name);
+            return Ok(products);
+        }
     }
 }
