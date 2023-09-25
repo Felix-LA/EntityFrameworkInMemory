@@ -28,7 +28,7 @@ namespace EntityFrameworkInMemory.Controllers
             _productRepository = productRepositorio;
         }
 
-
+        //Buscando todos os produtos
         [HttpGet]
         //[Route("API/GetProduct")]
         public async Task<IActionResult> GetProductList()
@@ -37,7 +37,7 @@ namespace EntityFrameworkInMemory.Controllers
             return Ok(products);
         }
         
-
+        //Adiconando Produto
         [HttpPost]
         //[Route("API/PostProduct")]
         public async Task<IActionResult> PostProduct(ProductModel productModel)
@@ -56,11 +56,19 @@ namespace EntityFrameworkInMemory.Controllers
         }
 
 
-
+        //Fazendo uma busca de produtos por nome
         [HttpGet]
         public async Task<IActionResult> GetProductListForName(string name)
         {
             ProductDataModel products = await _productRepository.BuscarPorNome(name);
+            return Ok(products);
+        }
+
+        //Fazendo uma busca de produtos por categoria
+        [HttpGet]
+        public async Task<IActionResult> GetProductListForCategory(string category)
+        {
+            ProductDataModel products = await _productRepository.BuscarPorCategoria(category);
             return Ok(products);
         }
     }
