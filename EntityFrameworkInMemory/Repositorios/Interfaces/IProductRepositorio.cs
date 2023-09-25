@@ -7,5 +7,6 @@ namespace EntityFrameworkInMemory.Repositorios.Interfaces
     {
         Task<List<ProductDataModel>> BuscarTodosUsuarios();
         Task<ProductDataModel> BuscarPorNome(string name);
+        Task<ProductDataModel> BuscarPorCategoria(string category);
     }
 }
