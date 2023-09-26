@@ -48,6 +48,7 @@ namespace EntityFrameworkInMemory.Controllers
             product.Name = productModel.ProductName;
             product.Category = productModel.ProductCategory;
             product.Price = productModel.ProductPrice;
+            product.Codigo = productModel.ProductCodigo;
 
             await _dbContext.Products.AddAsync(product);
             await _dbContext.SaveChangesAsync();
@@ -72,6 +73,15 @@ namespace EntityFrameworkInMemory.Controllers
         {
             ProductDataModel products = await _productRepository.BuscarPorCategoria(category);
             return Ok(products);
+        }
+
+        //Deletando produto
+        [HttpDelete]
+        [Route("API/Delete")]
+        public async Task<IActionResult> Delete(int codigo)
+        {
+            bool apagado = await _productRepository.Apagar(codigo);
+            return Ok(apagado);
         }
     }
 }

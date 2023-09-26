@@ -28,5 +28,25 @@ namespace EntityFrameworkInMemory.Repositorios
         {
             return await _dBContext.Products.FirstOrDefaultAsync(x => x.Category.Equals(category));
         }
+
+        public async Task<ProductDataModel> BuscarPorCodigo(int codigo)
+        {
+            return await _dBContext.Products.FirstOrDefaultAsync(x => x.Codigo.Equals(codigo));
+        }
+
+        public async Task<bool> Apagar(int codigo)
+        {
+            ProductDataModel usuarioPorCodigo = await BuscarPorCodigo(codigo);
+
+            if (usuarioPorCodigo == null)
+            {
+                throw new Exception($"Produto com o codigo {codigo} nao foi encontrado");
+            }
+
+            _dBContext.Products.Remove(usuarioPorCodigo);
+            await _dBContext.SaveChangesAsync();
+
+            return true;
+        }
     }
 }

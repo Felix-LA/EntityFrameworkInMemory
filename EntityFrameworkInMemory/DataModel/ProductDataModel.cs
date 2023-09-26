@@ -17,5 +17,8 @@ namespace EntityFrameworkInMemory.DataModel
 
         //Váriavel do tipo float para o preço, o tipo float permite números quebrados
         public float Price { get; set; }
+
+        //Variavel do tipo int para o codigo, o tipo int gera numeros inteniros
+        public int Codigo { get; set; }
     }
 }

@@ -5,5 +5,6 @@
         public string ProductName { get; set; }
         public string ProductCategory { get; set; }
         public float ProductPrice { get; set; } 
+        public int ProductCodigo { get; set; }
     }
 }
