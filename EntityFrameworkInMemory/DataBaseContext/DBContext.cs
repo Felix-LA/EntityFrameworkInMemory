@@ -1,4 +1,5 @@
 ﻿using EntityFrameworkInMemory.DataModel;
+using EntityFrameworkInMemory.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace EntityFrameworkInMemory.DataBaseContext
@@ -15,6 +16,6 @@ namespace EntityFrameworkInMemory.DataBaseContext
 
         //Aqui é onde está sendo estabelecida a conexão com o banco de dado.
         //Estamos intanciando e depois conectando a ele.
-        public DbSet<ProductDataModel> Products { get; set; }
+        public DbSet<ProductModel> Products { get; set; }
     }
 }

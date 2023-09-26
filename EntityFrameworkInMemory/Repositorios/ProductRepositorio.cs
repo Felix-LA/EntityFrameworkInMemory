@@ -14,29 +14,29 @@ namespace EntityFrameworkInMemory.Repositorios
         {
             _dBContext = dBContext;
         }
-        public async Task<List<ProductDataModel>> BuscarTodosUsuarios()
+        public async Task<List<ProductModel>> BuscarTodosUsuarios()
         {
             return await _dBContext.Products.ToListAsync();
         }
 
-        public async Task<ProductDataModel> BuscarPorNome(string name)
+        public async Task<ProductModel> BuscarPorNome(string name)
         {
-            return await _dBContext.Products.FirstOrDefaultAsync(x => x.Name.Equals(name));
+            return await _dBContext.Products.FirstOrDefaultAsync(x => x.ProductName.Equals(name));
         }
 
-        public async Task<ProductDataModel> BuscarPorCategoria(string category)
+        public async Task<ProductModel> BuscarPorCategoria(string category)
         {
-            return await _dBContext.Products.FirstOrDefaultAsync(x => x.Category.Equals(category));
+            return await _dBContext.Products.FirstOrDefaultAsync(x => x.ProductCategory.Equals(category));
         }
 
-        public async Task<ProductDataModel> BuscarPorCodigo(int codigo)
+        public async Task<ProductModel> BuscarPorCodigo(int codigo)
         {
-            return await _dBContext.Products.FirstOrDefaultAsync(x => x.Codigo.Equals(codigo));
+            return await _dBContext.Products.FirstOrDefaultAsync(x => x.ProductCodigo.Equals(codigo));
         }
 
         public async Task<bool> Apagar(int codigo)
         {
-            ProductDataModel usuarioPorCodigo = await BuscarPorCodigo(codigo);
+            ProductModel usuarioPorCodigo = await BuscarPorCodigo(codigo);
 
             if (usuarioPorCodigo == null)
             {

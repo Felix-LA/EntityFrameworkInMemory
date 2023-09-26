@@ -33,22 +33,22 @@ namespace EntityFrameworkInMemory.Controllers
         [Route("API/GetProduct")]
         public async Task<IActionResult> GetProductList()
         {
-            List<ProductDataModel> products = await _productRepository.BuscarTodosUsuarios();
+            List<ProductModel> products = await _productRepository.BuscarTodosUsuarios();
             return Ok(products);
         }
         
         //Adiconando Produto
         [HttpPost]
         [Route("API/PostProduct")]
-        public async Task<IActionResult> PostProduct(ProductModel productModel)
+        public async Task<IActionResult> PostProduct(ProductDataModel productDataModel)
         {
-            ProductDataModel product = new ProductDataModel();
+            ProductModel product = new ProductModel();
 
-            product.Id = Guid.NewGuid();
-            product.Name = productModel.ProductName;
-            product.Category = productModel.ProductCategory;
-            product.Price = productModel.ProductPrice;
-            product.Codigo = productModel.ProductCodigo;
+            product.ProductId = Guid.NewGuid();
+            productDataModel.Name = product.ProductName;
+            productDataModel.Category = product.ProductCategory;
+            productDataModel.Price = product.ProductPrice;
+            productDataModel.Codigo = product.ProductCodigo;
 
             await _dbContext.Products.AddAsync(product);
             await _dbContext.SaveChangesAsync();
@@ -62,7 +62,7 @@ namespace EntityFrameworkInMemory.Controllers
         [Route("API/GetName")]
         public async Task<IActionResult> GetProductListForName(string name)
         {
-            ProductDataModel products = await _productRepository.BuscarPorNome(name);
+            ProductModel products = await _productRepository.BuscarPorNome(name);
             return Ok(products);
         }
 
@@ -71,7 +71,7 @@ namespace EntityFrameworkInMemory.Controllers
         [Route("API/GetCategory")]
         public async Task<IActionResult> GetProductListForCategory(string category)
         {
-            ProductDataModel products = await _productRepository.BuscarPorCategoria(category);
+            ProductModel products = await _productRepository.BuscarPorCategoria(category);
             return Ok(products);
         }
 
