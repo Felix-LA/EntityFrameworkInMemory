@@ -33,29 +33,28 @@ namespace EntityFrameworkInMemory.Controllers
         [Route("API/GetProduct")]
         public async Task<IActionResult> GetProductList()
         {
-            List<ProductModel> products = await _productRepository.BuscarTodosUsuarios();
+            List<ProductModel> products = await _productRepository.BuscarTodos();
             return Ok(products);
         }
         
         //Adiconando Produto
         [HttpPost]
-        [Route("API/PostProduct")]
-        public async Task<IActionResult> PostProduct(ProductDataModel productDataModel)
+        [Route("API/Adicionar")]
+        public async Task<IActionResult> Adicionar(ProductDataModel productDataModel)
         {
-            ProductModel product = new ProductModel();
-
-            product.ProductId = Guid.NewGuid();
-            productDataModel.Name = product.ProductName;
-            productDataModel.Category = product.ProductCategory;
-            productDataModel.Price = product.ProductPrice;
-            productDataModel.Codigo = product.ProductCodigo;
-
-            await _dbContext.Products.AddAsync(product);
-            await _dbContext.SaveChangesAsync();
-
-            return Ok(product);
+            ProductModel product = await _productRepository.Adicionar(productDataModel);
+            return Ok(productDataModel);
         }
 
+        //Atualizando Produto
+        [HttpPut]
+        [Route("API/Atualizar")]
+        public async Task<IActionResult> Atualizar(ProductDataModel productDataModel, int codigo)
+        {
+            productDataModel.Codigo = codigo;
+            ProductModel product = await _productRepository.Atualizar(productDataModel, codigo);
+            return Ok(product);
+        }
 
         //Fazendo uma busca de produtos por nome
         [HttpGet]
@@ -71,7 +70,7 @@ namespace EntityFrameworkInMemory.Controllers
         [Route("API/GetCategory")]
         public async Task<IActionResult> GetProductListForCategory(string category)
         {
-            ProductModel products = await _productRepository.BuscarPorCategoria(category);
+            List<ProductModel> products = await _productRepository.BuscarPorCategoria(category);
             return Ok(products);
         }
 
