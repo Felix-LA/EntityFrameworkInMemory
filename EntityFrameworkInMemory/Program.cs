@@ -12,6 +12,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddTransient<IProductRepositorio,ProductRepositorio>();
+builder.Services.AddTransient<ICategoryRepositorio,CategoryRepositorio>();
 builder.Services.AddDbContext<DBContext>();
 
 var app = builder.Build();

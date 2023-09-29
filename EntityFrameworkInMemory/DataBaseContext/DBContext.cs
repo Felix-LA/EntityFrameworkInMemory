@@ -17,5 +17,6 @@ namespace EntityFrameworkInMemory.DataBaseContext
         //Aqui é onde está sendo estabelecida a conexão com o banco de dado.
         //Estamos intanciando e depois conectando a ele.
         public DbSet<ProductModel> Products { get; set; }
+        public DbSet<CategoryModel> Category { get; set; }
     }
 }

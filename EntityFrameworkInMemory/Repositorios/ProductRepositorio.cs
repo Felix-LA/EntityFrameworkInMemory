@@ -25,7 +25,7 @@ namespace EntityFrameworkInMemory.Repositorios
             return await _dBContext.Products.FirstOrDefaultAsync(x => x.ProductName.Equals(name));
         }
 
-        public async Task<List<ProductModel>> BuscarPorCategoria(string category)
+        public async Task<List<ProductModel>> BuscarPorCategoria(CategoryDataModel category)
         {
             return await _dBContext.Products.Where(x => x.ProductCategory.Equals(category)).ToListAsync();
         }

@@ -30,7 +30,7 @@ namespace EntityFrameworkInMemory.Controllers
 
         //Buscando todos os produtos
         [HttpGet]
-        [Route("API/GetProduct")]
+        [Route("Product/GetProduct")]
         public async Task<IActionResult> GetProductList()
         {
             List<ProductModel> products = await _productRepository.BuscarTodos();
@@ -39,7 +39,7 @@ namespace EntityFrameworkInMemory.Controllers
         
         //Adiconando Produto
         [HttpPost]
-        [Route("API/Adicionar")]
+        [Route("Product/Adicionar")]
         public async Task<IActionResult> Adicionar(ProductDataModel productDataModel)
         {
             ProductModel product = await _productRepository.Adicionar(productDataModel);
@@ -48,7 +48,7 @@ namespace EntityFrameworkInMemory.Controllers
 
         //Atualizando Produto
         [HttpPut]
-        [Route("API/Atualizar")]
+        [Route("Product/Atualizar")]
         public async Task<IActionResult> Atualizar(ProductDataModel productDataModel, int codigo)
         {
             productDataModel.Codigo = codigo;
@@ -58,7 +58,7 @@ namespace EntityFrameworkInMemory.Controllers
 
         //Fazendo uma busca de produtos por nome
         [HttpGet]
-        [Route("API/GetName")]
+        [Route("Product/GetName")]
         public async Task<IActionResult> GetProductListForName(string name)
         {
             ProductModel products = await _productRepository.BuscarPorNome(name);
@@ -67,8 +67,8 @@ namespace EntityFrameworkInMemory.Controllers
 
         //Fazendo uma busca de produtos por categoria
         [HttpGet]
-        [Route("API/GetCategory")]
-        public async Task<IActionResult> GetProductListForCategory(string category)
+        [Route("Product/GetCategory")]
+        public async Task<IActionResult> GetProductListForCategory(CategoryDataModel category)
         {
             List<ProductModel> products = await _productRepository.BuscarPorCategoria(category);
             return Ok(products);
@@ -76,7 +76,7 @@ namespace EntityFrameworkInMemory.Controllers
 
         //Deletando produto
         [HttpDelete]
-        [Route("API/Delete")]
+        [Route("Product/Delete")]
         public async Task<IActionResult> Delete(int codigo)
         {
             bool apagado = await _productRepository.Apagar(codigo);

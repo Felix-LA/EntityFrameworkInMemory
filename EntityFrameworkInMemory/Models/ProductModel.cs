@@ -13,7 +13,7 @@ namespace EntityFrameworkInMemory.Models
         public string ProductName { get; set; }
 
         //váriavel do tipo sring para a categoria, o tipo string é um aglomerado de letras, permite textos
-        public string ProductCategory { get; set; }
+        public CategoryModel ProductCategory { get; set; }
 
         //Váriavel do tipo float para o preço, o tipo float permite números quebrados
         public float ProductPrice { get; set; }
