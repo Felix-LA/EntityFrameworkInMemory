@@ -65,15 +65,6 @@ namespace EntityFrameworkInMemory.Controllers
             return Ok(products);
         }
 
-        //Fazendo uma busca de produtos por categoria
-        [HttpGet]
-        [Route("Product/GetCategory")]
-        public async Task<IActionResult> GetProductListForCategory(CategoryDataModel category)
-        {
-            List<ProductModel> products = await _productRepository.BuscarPorCategoria(category);
-            return Ok(products);
-        }
-
         //Deletando produto
         [HttpDelete]
         [Route("Product/Delete")]

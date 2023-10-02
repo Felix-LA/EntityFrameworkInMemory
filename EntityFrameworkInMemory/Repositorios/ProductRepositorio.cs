@@ -24,12 +24,6 @@ namespace EntityFrameworkInMemory.Repositorios
         {
             return await _dBContext.Products.FirstOrDefaultAsync(x => x.ProductName.Equals(name));
         }
-
-        public async Task<List<ProductModel>> BuscarPorCategoria(CategoryDataModel category)
-        {
-            return await _dBContext.Products.Where(x => x.ProductCategory.Equals(category)).ToListAsync();
-        }
-
         public async Task<ProductModel> BuscarPorCodigo(int codigo)
         {
             return await _dBContext.Products.FirstOrDefaultAsync(x => x.ProductCodigo.Equals(codigo));
@@ -52,11 +46,10 @@ namespace EntityFrameworkInMemory.Repositorios
 
         public async Task<ProductModel> Adicionar(ProductDataModel productDataModel)
         {
-            ProductModel product =  new ProductModel();
+            ProductModel product = new ProductModel();
             
             product.ProductId = Guid.NewGuid();
             product.ProductName = productDataModel.Name;
-            product.ProductCategory = productDataModel.Category;
             product.ProductPrice = productDataModel.Price;
             product.ProductCodigo = productDataModel.Codigo;
 
@@ -76,7 +69,6 @@ namespace EntityFrameworkInMemory.Repositorios
             }
 
             buscaProdutoPorCodigo.ProductName = atualizarProduto.Name;
-            buscaProdutoPorCodigo.ProductCategory = atualizarProduto.Category;
             buscaProdutoPorCodigo.ProductPrice = atualizarProduto.Price;
 
             _dBContext.Products.Update(buscaProdutoPorCodigo);
