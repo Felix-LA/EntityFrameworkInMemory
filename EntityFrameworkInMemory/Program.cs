@@ -1,4 +1,6 @@
 using EntityFrameworkInMemory.DataBaseContext;
+using EntityFrameworkInMemory.Repositorios;
+using EntityFrameworkInMemory.Repositorios.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +11,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddTransient<IProductRepositorio,ProductRepositorio>();
+builder.Services.AddTransient<ICategoryRepositorio,CategoryRepositorio>();
 builder.Services.AddDbContext<DBContext>();
 
 var app = builder.Build();

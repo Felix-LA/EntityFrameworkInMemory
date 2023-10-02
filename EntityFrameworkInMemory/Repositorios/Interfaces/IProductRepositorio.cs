@@ -5,8 +5,11 @@ namespace EntityFrameworkInMemory.Repositorios.Interfaces
 {
     public interface IProductRepositorio
     {
-        Task<List<ProductDataModel>> BuscarTodosUsuarios();
-        Task<ProductDataModel> BuscarPorNome(string name);
-        Task<ProductDataModel> BuscarPorCategoria(string category);
+        Task<List<ProductModel>> BuscarTodos();
+        Task<ProductModel> Adicionar(ProductDataModel produto);
+        Task<ProductModel> Atualizar(ProductDataModel atualizarProduto, int codigo);
+        Task<ProductModel> BuscarPorNome(string name);
+        Task<ProductModel> BuscarPorCodigo(int codigo);
+        Task<bool> Apagar(int codigo);
     }
 }

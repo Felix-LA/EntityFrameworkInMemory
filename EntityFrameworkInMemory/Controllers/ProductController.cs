@@ -30,48 +30,48 @@ namespace EntityFrameworkInMemory.Controllers
 
         //Buscando todos os produtos
         [HttpGet]
-        [Route("API/GetProduct")]
+        [Route("Product/GetProduct")]
         public async Task<IActionResult> GetProductList()
         {
-            List<ProductDataModel> products = await _productRepository.BuscarTodosUsuarios();
+            List<ProductModel> products = await _productRepository.BuscarTodos();
             return Ok(products);
         }
         
         //Adiconando Produto
         [HttpPost]
-        [Route("API/PostProduct")]
-        public async Task<IActionResult> PostProduct(ProductModel productModel)
+        [Route("Product/Adicionar")]
+        public async Task<IActionResult> Adicionar(ProductDataModel productDataModel)
         {
-            ProductDataModel product = new ProductDataModel();
+            ProductModel product = await _productRepository.Adicionar(productDataModel);
+            return Ok(productDataModel);
+        }
 
-            product.Id = Guid.NewGuid();
-            product.Name = productModel.ProductName;
-            product.Category = productModel.ProductCategory;
-            product.Price = productModel.ProductPrice;
-
-            await _dbContext.Products.AddAsync(product);
-            await _dbContext.SaveChangesAsync();
-
+        //Atualizando Produto
+        [HttpPut]
+        [Route("Product/Atualizar")]
+        public async Task<IActionResult> Atualizar(ProductDataModel productDataModel, int codigo)
+        {
+            productDataModel.Codigo = codigo;
+            ProductModel product = await _productRepository.Atualizar(productDataModel, codigo);
             return Ok(product);
         }
 
-
         //Fazendo uma busca de produtos por nome
         [HttpGet]
-        [Route("API/GetName")]
+        [Route("Product/GetName")]
         public async Task<IActionResult> GetProductListForName(string name)
         {
-            ProductDataModel products = await _productRepository.BuscarPorNome(name);
+            ProductModel products = await _productRepository.BuscarPorNome(name);
             return Ok(products);
         }
 
-        //Fazendo uma busca de produtos por categoria
-        [HttpGet]
-        [Route("API/GetCategory")]
-        public async Task<IActionResult> GetProductListForCategory(string category)
+        //Deletando produto
+        [HttpDelete]
+        [Route("Product/Delete")]
+        public async Task<IActionResult> Delete(int codigo)
         {
-            ProductDataModel products = await _productRepository.BuscarPorCategoria(category);
-            return Ok(products);
+            bool apagado = await _productRepository.Apagar(codigo);
+            return Ok(apagado);
         }
     }
 }
