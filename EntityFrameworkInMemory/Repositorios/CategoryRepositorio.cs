@@ -20,7 +20,6 @@ namespace EntityFrameworkInMemory.Repositorios
         {
             CategoryModel categoryModel = new CategoryModel();
 
-            categoryModel.CategoryId = Guid.NewGuid();
             categoryModel.CategoryName = categoryDataModel.Name;
             categoryModel.CategoryStatus = categoryDataModel.Status;
             categoryModel.CategoryCodigo = categoryDataModel.Codigo;

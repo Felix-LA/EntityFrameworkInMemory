@@ -3,6 +3,7 @@ using EntityFrameworkInMemory.DataModel;
 using EntityFrameworkInMemory.Models;
 using EntityFrameworkInMemory.Repositorios.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using System.Xml.Linq;
 
 namespace EntityFrameworkInMemory.Repositorios
 {
@@ -15,40 +16,43 @@ namespace EntityFrameworkInMemory.Repositorios
             _dBContext = dBContext;
         }
 
-        public async Task<List<ProductModel>> BuscarTodos()
+        public async Task<List<ProductModel>> BuscarTodos(ProductDataModel productDataModel)
         {
-            return await _dBContext.Products.ToListAsync();
-        }
-
-        public async Task<ProductModel> BuscarPorNome(string name)
-        {
-            return await _dBContext.Products.FirstOrDefaultAsync(x => x.ProductName.Equals(name));
-        }
-        public async Task<ProductModel> BuscarPorCodigo(int codigo)
-        {
-            return await _dBContext.Products.FirstOrDefaultAsync(x => x.ProductCodigo.Equals(codigo));
-        }
-
-        public async Task<bool> Apagar(int codigo)
-        {
-            ProductModel usuarioPorCodigo = await BuscarPorCodigo(codigo);
-
-            if (usuarioPorCodigo == null)
+            if (productDataModel.Name != null)
             {
-                throw new Exception($"Produto com o codigo {codigo} nao foi encontrado");
+                return await _dBContext.Products.Where(x => x.ProductName.Equals(productDataModel.Name)).ToListAsync();
+            }
+            if (productDataModel.Codigo != null) {
+                return await _dBContext.Products.Where(x => x.ProductCodigo.Equals(productDataModel.Codigo)).ToListAsync();
+            }
+            else {
+
+                return await _dBContext.Products.ToListAsync();
+                }
             }
 
-            _dBContext.Products.Remove(usuarioPorCodigo);
-            await _dBContext.SaveChangesAsync();
+        //public async Task<bool> Apagar(int codigo)
+        //{
+        //    ProductDataModel productDataModel = new ProductDataModel {Codigo= codigo };
+        //    var  buscaApagar = await BuscarTodos(productDataModel);
 
-            return true;
-        }
+
+        //    if (!buscaApagar.Any())
+        //    {
+        //        throw new Exception($"Produto com o codigo {codigo} nao foi encontrado");
+        //    }
+
+        //    _dBContext.Products.Remove(productDataModel);
+        //    await _dBContext.SaveChangesAsync();
+
+        //    return true;
+        //}
 
         public async Task<ProductModel> Adicionar(ProductDataModel productDataModel)
         {
             ProductModel product = new ProductModel();
             
-            product.ProductId = Guid.NewGuid();
+            product.ProductId = productDataModel.IdCategory;
             product.ProductName = productDataModel.Name;
             product.ProductPrice = productDataModel.Price;
             product.ProductCodigo = productDataModel.Codigo;
@@ -59,22 +63,22 @@ namespace EntityFrameworkInMemory.Repositorios
             return product;
         }
 
-        public async Task<ProductModel> Atualizar(ProductDataModel atualizarProduto, int codigo)
-        {
-            ProductModel buscaProdutoPorCodigo = await BuscarPorCodigo(codigo);
+        //public async Task<ProductModel> Atualizar(ProductDataModel atualizarProduto, int codigo)
+        //{
+        //    ProductModel buscaProdutoPorCodigo = await BuscarTodos(codigo);
 
-            if (BuscarPorCodigo == null)
-            {
-                throw new Exception("Produto nao localizado");
-            }
+        //    if (BuscarPorCodigo == null)
+        //    {
+        //        throw new Exception("Produto nao localizado");
+        //    }
 
-            buscaProdutoPorCodigo.ProductName = atualizarProduto.Name;
-            buscaProdutoPorCodigo.ProductPrice = atualizarProduto.Price;
+        //    buscaProdutoPorCodigo.ProductName = atualizarProduto.Name;
+        //    buscaProdutoPorCodigo.ProductPrice = atualizarProduto.Price;
 
-            _dBContext.Products.Update(buscaProdutoPorCodigo);
-            await _dBContext.SaveChangesAsync();
+        //    _dBContext.Products.Update(buscaProdutoPorCodigo);
+        //    await _dBContext.SaveChangesAsync();
 
-            return buscaProdutoPorCodigo;
-        }
+        //    return buscaProdutoPorCodigo;
+        //}
     }
 }
