@@ -31,9 +31,9 @@ namespace EntityFrameworkInMemory.Controllers
         //Buscando todos os produtos
         [HttpGet]
         [Route("Product/GetProduct")]
-        public async Task<IActionResult> GetProductList()
+        public async Task<IActionResult> GetProductList(ProductDataModel productDataModel)
         {
-            List<ProductModel> products = await _productRepository.BuscarTodos();
+            List<ProductModel> products = await _productRepository.BuscarTodos(productDataModel);
             return Ok(products);
         }
         
@@ -46,32 +46,32 @@ namespace EntityFrameworkInMemory.Controllers
             return Ok(productDataModel);
         }
 
-        //Atualizando Produto
-        [HttpPut]
-        [Route("Product/Atualizar")]
-        public async Task<IActionResult> Atualizar(ProductDataModel productDataModel, int codigo)
-        {
-            productDataModel.Codigo = codigo;
-            ProductModel product = await _productRepository.Atualizar(productDataModel, codigo);
-            return Ok(product);
-        }
+        ////Atualizando Produto
+        //[HttpPut]
+        //[Route("Product/Atualizar")]
+        //public async Task<IActionResult> Atualizar(ProductDataModel productDataModel, int codigo)
+        //{
+        //    productDataModel.Codigo = codigo;
+        //    ProductModel product = await _productRepository.Atualizar(productDataModel, codigo);
+        //    return Ok(product);
+        //}
 
-        //Fazendo uma busca de produtos por nome
-        [HttpGet]
-        [Route("Product/GetName")]
-        public async Task<IActionResult> GetProductListForName(string name)
-        {
-            ProductModel products = await _productRepository.BuscarPorNome(name);
-            return Ok(products);
-        }
+        ////Fazendo uma busca de produtos por nome
+        //[HttpGet]
+        //[Route("Product/GetName")]
+        //public async Task<IActionResult> GetProductListForName(string name)
+        //{
+        //    ProductModel products = await _productRepository.BuscarPorNome(name);
+        //    return Ok(products);
+        //}
 
-        //Deletando produto
-        [HttpDelete]
-        [Route("Product/Delete")]
-        public async Task<IActionResult> Delete(int codigo)
-        {
-            bool apagado = await _productRepository.Apagar(codigo);
-            return Ok(apagado);
-        }
+        ////Deletando produto
+        //[HttpDelete]
+        //[Route("Product/Delete")]
+        //public async Task<IActionResult> Delete(int codigo)
+        //{
+        //    bool apagado = await _productRepository.Apagar(codigo);
+        //    return Ok(apagado);
+        //}
     }
 }
