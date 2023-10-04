@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.EntityFrameworkCore;
+using System.Xml.Linq;
 
 //verbosidade de API -- fullrest api
 //get byproductname -- usando where com context api net core
@@ -30,10 +31,24 @@ namespace EntityFrameworkInMemory.Controllers
 
         //Buscando todos os produtos
         [HttpGet]
-        [Route("Product/GetProduct")]
-        public async Task<IActionResult> GetProductList(ProductDataModel productDataModel)
+        [Route("Product/BuscarTodos")]
+        public async Task<IActionResult> BuscarTodos([FromBody] ProductDataModel productDataModel)
         {
-            List<ProductModel> products = await _productRepository.BuscarTodos(productDataModel);
+            List<ProductModel> products;
+
+            if (productDataModel.Name != null)
+            {
+                products = await _productRepository.BuscarTodos(productDataModel);
+            }
+            if (productDataModel.Codigo != null)
+            {
+                products = await _productRepository.BuscarTodos(productDataModel);
+            }
+            else
+            {
+               products = await _productRepository.BuscarTodos(productDataModel);
+            }
+             
             return Ok(products);
         }
         
