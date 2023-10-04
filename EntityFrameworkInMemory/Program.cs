@@ -1,6 +1,6 @@
-using EntityFrameworkInMemory.DataBaseContext;
-using EntityFrameworkInMemory.Repositorios;
-using EntityFrameworkInMemory.Repositorios.Interfaces;
+using EstudosApi.Repository.DataBaseContext;
+using EstudosApi.Repository.Repositorios;
+using EstudosApi.Repository.Repositorios.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 

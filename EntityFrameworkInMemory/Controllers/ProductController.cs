@@ -1,12 +1,13 @@
-﻿using EntityFrameworkInMemory.DataBaseContext;
-using EntityFrameworkInMemory.DataModel;
-using EntityFrameworkInMemory.Models;
-using EntityFrameworkInMemory.Repositorios.Interfaces;
+﻿using EstudosApi.Repository.DataBaseContext;
+using EstudosApi.Domain.DataModel;
+using EstudosApi.Domain.Models;
+using EstudosApi.Repository.Repositorios.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.EntityFrameworkCore;
 using System.Xml.Linq;
+using EstudosApi;
 
 //verbosidade de API -- fullrest api
 //get byproductname -- usando where com context api net core
@@ -30,7 +31,7 @@ namespace EntityFrameworkInMemory.Controllers
         }
 
         //Buscando todos os produtos
-        [HttpGet]
+        [HttpPost]
         [Route("Product/BuscarTodos")]
         public async Task<IActionResult> BuscarTodos([FromBody] ProductDataModel productDataModel)
         {

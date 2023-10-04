@@ -1,8 +1,8 @@
-﻿using EntityFrameworkInMemory.DataBaseContext;
-using EntityFrameworkInMemory.DataModel;
-using EntityFrameworkInMemory.Enums;
-using EntityFrameworkInMemory.Models;
-using EntityFrameworkInMemory.Repositorios.Interfaces;
+﻿using EstudosApi.Repository.DataBaseContext;
+using EstudosApi.Domain.DataModel;
+using EstudosApi.Domain.Enums;
+using EstudosApi.Domain.Models;
+using EstudosApi.Repository.Repositorios.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
