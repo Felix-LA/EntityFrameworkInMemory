@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameworkInMemory", "EntityFrameworkInMemory\EntityFrameworkInMemory.csproj", "{ABED80C1-B345-48F7-BFB6-986E377621E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFrameworkInMemory", "EntityFrameworkInMemory\EntityFrameworkInMemory.csproj", "{ABED80C1-B345-48F7-BFB6-986E377621E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EstudosApi.Repository", "EstudosApi.Repository\EstudosApi.Repository.csproj", "{32C88BFF-9B61-4464-9115-B39A15B1318A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EstudosApi.Domain", "EstudosApi.Domain\EstudosApi.Domain.csproj", "{2FFB749F-2943-48B7-A101-155D8D38AD32}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EstudosApi.Service", "EstudosApi.Service\EstudosApi.Service.csproj", "{FB120311-47AD-4475-A0DD-B8A95CE9A22F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{ABED80C1-B345-48F7-BFB6-986E377621E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ABED80C1-B345-48F7-BFB6-986E377621E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ABED80C1-B345-48F7-BFB6-986E377621E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32C88BFF-9B61-4464-9115-B39A15B1318A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32C88BFF-9B61-4464-9115-B39A15B1318A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32C88BFF-9B61-4464-9115-B39A15B1318A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32C88BFF-9B61-4464-9115-B39A15B1318A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FFB749F-2943-48B7-A101-155D8D38AD32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FFB749F-2943-48B7-A101-155D8D38AD32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FFB749F-2943-48B7-A101-155D8D38AD32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FFB749F-2943-48B7-A101-155D8D38AD32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB120311-47AD-4475-A0DD-B8A95CE9A22F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB120311-47AD-4475-A0DD-B8A95CE9A22F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB120311-47AD-4475-A0DD-B8A95CE9A22F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB120311-47AD-4475-A0DD-B8A95CE9A22F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

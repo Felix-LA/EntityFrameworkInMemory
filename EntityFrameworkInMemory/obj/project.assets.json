@@ -427,6 +427,16 @@
         "build": {
           "buildTransitive/netcoreapp3.1/_._": {}
         }
+      },
+      "EstudosApi.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/EstudosApi.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/EstudosApi.Domain.dll": {}
+        }
       }
     }
   },
@@ -1194,10 +1204,16 @@
         "system.runtime.compilerservices.unsafe.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "EstudosApi.Domain/1.0.0": {
+      "type": "project",
+      "path": "../EstudosApi.Domain/EstudosApi.Domain.csproj",
+      "msbuildProject": "../EstudosApi.Domain/EstudosApi.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "EstudosApi.Domain >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 6.0.22",
       "Microsoft.EntityFrameworkCore.InMemory >= 6.0.22",
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.22",
@@ -1236,7 +1252,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "E:\\C#\\EntityFrameworkInMemory\\EstudosApi.Domain\\EstudosApi.Domain.csproj": {
+              "projectPath": "E:\\C#\\EntityFrameworkInMemory\\EstudosApi.Domain\\EstudosApi.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
