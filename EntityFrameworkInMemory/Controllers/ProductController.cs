@@ -32,10 +32,23 @@ namespace EntityFrameworkInMemory.Controllers
         //Buscando todos os produtos
         [HttpGet]
         [Route("Product/BuscarTodos")]
-        public async Task<IActionResult> BuscarTodos([FromBody] ProductDataModel productDataModel)
+        public async Task<IActionResult> BuscarTodos(ProductDataModel productDataModel)
         {
-            List<ProductModel> products = await _productRepository.BuscarTodos(productDataModel);
+            List<ProductModel> products;
 
+            if (productDataModel.Name != null)
+            {
+                products = await _productRepository.BuscarTodos(productDataModel);
+            }
+            if (productDataModel.Codigo != null)
+            {
+                products = await _productRepository.BuscarTodos(productDataModel);
+            }
+            else
+            {
+               products = await _productRepository.BuscarTodos(productDataModel);
+            }
+             
             return Ok(products);
         }
         
