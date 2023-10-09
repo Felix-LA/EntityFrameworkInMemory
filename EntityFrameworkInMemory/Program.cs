@@ -1,6 +1,5 @@
 using EstudosApi.Domain.Interfaces;
-using EstudosApi.Repository.DataBaseContext;
-using EstudosApi.Service;
+
 
 var builder = WebApplication.CreateBuilder(args);
 

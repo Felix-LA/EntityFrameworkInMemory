@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\EntityFrameworkInMemory\EntityFrameworkInMemory.csproj" />
     <ProjectReference Include="..\EstudosApi.Domain\EstudosApi.Domain.csproj" />
     <ProjectReference Include="..\EstudosApi.Repository\EstudosApi.Repository.csproj" />
   </ItemGroup>

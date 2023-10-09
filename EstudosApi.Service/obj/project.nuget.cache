@@ -1,7 +1,6 @@
 {
   "version": 2,
-<<<<<<< HEAD
-  "dgSpecHash": "oWw3ekC2Qv+BZblLe9nANI4MfkdBDuiRCMG2WksBkNHPQt4f+VEZEVKKxZkCtTEz9CiCesORPGvHngK0kpmEpQ==",
+  "dgSpecHash": "ePPq+g9pSujhAF6XT/7WmBXtuh2tW4fb5oJDgm2ZRaFxsYWrJUHX+Fu62xoLQQbopew/xqah+qZ3y297KrIvmQ==",
   "success": true,
   "projectFilePath": "D:\\C#\\SLN-EntityFrameworkInMemory\\EstudosApi.Service\\EstudosApi.Service.csproj",
   "expectedPackageFiles": [
@@ -27,11 +26,5 @@
     "C:\\Users\\tatia\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.1\\system.diagnostics.diagnosticsource.6.0.1.nupkg.sha512",
     "C:\\Users\\tatia\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
   ],
-=======
-  "dgSpecHash": "763molbpzj6+HH8yE9vP4JK6NScKnAeaMZJL81wDtDjTEzZftNilOtiGOvP00xbrhEMBuJJDyo4nomdZXeGdsg==",
-  "success": true,
-  "projectFilePath": "E:\\C#\\EntityFrameworkInMemory\\EstudosApi.Service\\EstudosApi.Service.csproj",
-  "expectedPackageFiles": [],
->>>>>>> a0627c8b442ba3c8d0a1fc442433fbefd96ca3be
   "logs": []
 }

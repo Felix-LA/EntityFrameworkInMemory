@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "iLx79vLoCk6+JzXLUYc/ooCJGSwYuJH8bm0pO8K0MJUVsAaX22qhRFezDq5IvafhosJrBG4farlddRWELR9tSQ==",
+  "dgSpecHash": "Sn9Z3QYgHRtkOzZ9cXEj3457C6gIpuQexo26DThGdx32NcYDjSkvqPY1cjKn1cfLTAnYZAuYbf7mebBsVbbpaQ==",
   "success": true,
-  "projectFilePath": "E:\\C#\\EntityFrameworkInMemory\\EstudosApi.Domain\\EstudosApi.Domain.csproj",
+  "projectFilePath": "D:\\C#\\SLN-EntityFrameworkInMemory\\EstudosApi.Domain\\EstudosApi.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
