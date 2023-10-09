@@ -1,13 +1,12 @@
-﻿using EstudosApi.Repository.DataBaseContext;
-using EstudosApi.Domain.DataModel;
+﻿using EstudosApi.Domain.DataModel;
 using EstudosApi.Domain.Models;
-using EstudosApi.Repository.Repositorios.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.EntityFrameworkCore;
 using System.Xml.Linq;
 using EstudosApi;
+using EstudosApi.Domain.Interfaces;
 
 //verbosidade de API -- fullrest api
 //get byproductname -- usando where com context api net core
@@ -20,14 +19,12 @@ namespace EntityFrameworkInMemory.Controllers
 
     public class ProductController : ControllerBase
     {
-        public readonly IProductRepositorio _productRepository;
+        public readonly IProductService productService;
 
-        private readonly DBContext _dbContext;
 
-        public ProductController(DBContext dBContext, IProductRepositorio productRepositorio)
+        public ProductController(IProductService _productService)
         {
-            _dbContext = dBContext;
-            _productRepository = productRepositorio;
+            productService = _productService;
         }
 
         //Buscando todos os produtos
@@ -35,7 +32,7 @@ namespace EntityFrameworkInMemory.Controllers
         [Route("Product/BuscarTodos")]
         public async Task<IActionResult> BuscarTodos([FromBody] ProductDataModel productDataModel)
         {
-            List<ProductModel> products = await _productRepository.BuscarTodos(productDataModel);
+            List<ProductModel> products = await productService.BuscarTodos(productDataModel);
 
             return Ok(products);
         }
@@ -45,7 +42,7 @@ namespace EntityFrameworkInMemory.Controllers
         [Route("Product/Adicionar")]
         public async Task<IActionResult> Adicionar(ProductDataModel productDataModel)
         {
-            ProductModel product = await _productRepository.Adicionar(productDataModel);
+            ProductModel product = await productService.Adicionar(productDataModel);
             return Ok(productDataModel);
         }
 

@@ -2,18 +2,18 @@
 using EstudosApi.Domain.DataModel;
 using EstudosApi.Domain.Enums;
 using EstudosApi.Domain.Models;
-using EntityFrameworkInMemory.Repositorios.Interfaces;
+using EstudosApi.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace EntityFrameworkInMemory.Repositorios
 {
     public class CategoryRepositorio : ICategoryRepositorio
     {
-        public readonly DBContext _dBContext;
+        public readonly DBContext dBContext;
 
-        public CategoryRepositorio(DBContext dbContext)
+        public CategoryRepositorio(DBContext _dbContext)
         {
-            _dBContext = dbContext;
+            dBContext = _dbContext;
         }
 
         public async Task<CategoryModel> Adicionar(CategoryDataModel categoryDataModel)
@@ -24,30 +24,30 @@ namespace EntityFrameworkInMemory.Repositorios
             categoryModel.CategoryStatus = categoryDataModel.Status;
             categoryModel.CategoryCodigo = categoryDataModel.Codigo;
 
-            await _dBContext.Category.AddAsync(categoryModel);
-            await _dBContext.SaveChangesAsync();
+            await dBContext.Category.AddAsync(categoryModel);
+            await dBContext.SaveChangesAsync();
 
             return categoryModel;
         }
 
         public async Task<List<CategoryModel>> BuscarTodos()
         {
-            return await _dBContext.Category.ToListAsync();
+            return await dBContext.Category.ToListAsync();
         }
 
         public async Task<CategoryModel> BuscarPorCodigo(int codigo)
         {
-            return await _dBContext.Category.FirstOrDefaultAsync(x => x.CategoryCodigo.Equals(codigo));
+            return await dBContext.Category.FirstOrDefaultAsync(x => x.CategoryCodigo.Equals(codigo));
         }
 
         public async Task<CategoryModel> BuscarPorName(string name)
         {
-            return await _dBContext.Category.FirstOrDefaultAsync(x => x.CategoryName.Equals(name));
+            return await dBContext.Category.FirstOrDefaultAsync(x => x.CategoryName.Equals(name));
         }
 
         public async Task<List<CategoryModel>> BuscarPorStatus(CategoryStatusEnum status)
         {
-            return await _dBContext.Category.Where(x => x.CategoryStatus.Equals(status)).ToListAsync();
+            return await dBContext.Category.Where(x => x.CategoryStatus.Equals(status)).ToListAsync();
         }
 
         public async Task<bool> Deletar(int codigo)
@@ -59,8 +59,8 @@ namespace EntityFrameworkInMemory.Repositorios
                 throw new Exception("Categoria nao Encontrada");
             }
 
-            _dBContext.Category.Remove(buscarCategoryPorCodigo);
-            await _dBContext.SaveChangesAsync();
+            dBContext.Category.Remove(buscarCategoryPorCodigo);
+            await dBContext.SaveChangesAsync();
 
             return true;
         }
@@ -77,8 +77,8 @@ namespace EntityFrameworkInMemory.Repositorios
             buscarCategoryPorCodigo.CategoryName = categoryDataModel.Name;
             buscarCategoryPorCodigo.CategoryStatus = categoryDataModel.Status;
 
-            _dBContext.Category.Update(buscarCategoryPorCodigo);
-            await _dBContext.SaveChangesAsync();
+            dBContext.Category.Update(buscarCategoryPorCodigo);
+            await dBContext.SaveChangesAsync();
 
             return buscarCategoryPorCodigo;
         }
