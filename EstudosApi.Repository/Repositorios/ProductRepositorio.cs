@@ -1,7 +1,7 @@
 ﻿using EstudosApi.Repository.DataBaseContext;
 using EstudosApi.Domain.DataModel;
 using EstudosApi.Domain.Models;
-using EntityFrameworkInMemory.Repositorios.Interfaces;
+using EstudosApi.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.Xml.Linq;
 
@@ -9,25 +9,25 @@ namespace EntityFrameworkInMemory.Repositorios
 {
     public class ProductRepositorio : IProductRepositorio
     {
-        public readonly DBContext _dBContext;
+        public readonly DBContext dBContext;
 
-        public ProductRepositorio(DBContext dBContext)
+        public ProductRepositorio(DBContext _dBContext)
         {
-            _dBContext = dBContext;
+            this.dBContext = _dBContext;
         }
 
         public async Task<List<ProductModel>> BuscarTodos(ProductDataModel productDataModel)
         {
             if (productDataModel.Name != null)
             {
-                return await _dBContext.Products.Where(x => x.ProductName.Equals(productDataModel.Name)).ToListAsync();
+                return await dBContext.Products.Where(x => x.ProductName.Equals(productDataModel.Name)).ToListAsync();
             }
             if (productDataModel.Codigo != null) {
-                return await _dBContext.Products.Where(x => x.ProductCodigo.Equals(productDataModel.Codigo)).ToListAsync();
+                return await dBContext.Products.Where(x => x.ProductCodigo.Equals(productDataModel.Codigo)).ToListAsync();
             }
             else {
 
-                return await _dBContext.Products.ToListAsync();
+                return await dBContext.Products.ToListAsync();
                 }
             }
 
@@ -57,8 +57,8 @@ namespace EntityFrameworkInMemory.Repositorios
             product.ProductPrice = productDataModel.Price;
             product.ProductCodigo = productDataModel.Codigo;
 
-            await _dBContext.Products.AddAsync(product);
-            await _dBContext.SaveChangesAsync();
+            await dBContext.Products.AddAsync(product);
+            await dBContext.SaveChangesAsync();
             
             return product;
         }

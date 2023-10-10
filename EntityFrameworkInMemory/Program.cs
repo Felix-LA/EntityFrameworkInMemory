@@ -1,6 +1,5 @@
-using EstudosApi.Repository.DataBaseContext;
-using EstudosApi.Repository.Repositorios;
-using EstudosApi.Repository.Repositorios.Interfaces;
+using EstudosApi.Domain.Interfaces;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,8 +10,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddTransient<IProductRepositorio,ProductRepositorio>();
-builder.Services.AddTransient<ICategoryRepositorio,CategoryRepositorio>();
+builder.Services.AddTransient<IProductService, ProductService>();
+builder.Services.AddTransient<ICategoryService, CategoryService>();
 builder.Services.AddDbContext<DBContext>();
 
 var app = builder.Build();
