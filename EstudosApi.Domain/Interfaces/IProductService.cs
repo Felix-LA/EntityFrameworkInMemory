@@ -10,7 +10,7 @@ namespace EstudosApi.Domain.Interfaces
 {
     public interface IProductService
     {
-        Task<List<ProductModel>> BuscarTodos (ProductDataModel productDataModel);
+        Task<List<ProductModel>> BuscarProdutos (ProductDataModel productDataModel);
         Task<ProductModel> Adicionar(ProductDataModel produto);
     }
 }

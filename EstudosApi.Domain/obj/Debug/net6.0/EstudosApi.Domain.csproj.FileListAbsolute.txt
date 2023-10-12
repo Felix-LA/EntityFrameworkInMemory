@@ -9,3 +9,6 @@ D:\C#\SLN-EntityFrameworkInMemory\EstudosApi.Domain\obj\Debug\net6.0\EstudosApi.
 D:\C#\SLN-EntityFrameworkInMemory\EstudosApi.Domain\obj\Debug\net6.0\refint\EstudosApi.Domain.dll
 D:\C#\SLN-EntityFrameworkInMemory\EstudosApi.Domain\obj\Debug\net6.0\EstudosApi.Domain.pdb
 D:\C#\SLN-EntityFrameworkInMemory\EstudosApi.Domain\obj\Debug\net6.0\ref\EstudosApi.Domain.dll
+D:\C#\SLN-EntityFrameworkInMemory\EstudosApi.Domain\bin\Debug\net6.0\EstudosApi.Domain.runtimeconfig.json
+D:\C#\SLN-EntityFrameworkInMemory\EstudosApi.Domain\obj\Debug\net6.0\EstudosApi.Domain.csproj.AssemblyReference.cache
+D:\C#\SLN-EntityFrameworkInMemory\EstudosApi.Domain\obj\Debug\net6.0\EstudosApi.Domain.genruntimeconfig.cache

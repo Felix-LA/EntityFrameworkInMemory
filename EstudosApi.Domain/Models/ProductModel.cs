@@ -19,12 +19,8 @@ namespace EstudosApi.Domain.Models
 
         public int CategoryId { get; set; }
 
-
         //Váriavel do tipo float para o preço, o tipo float permite números quebrados
-        public float ProductPrice { get; set; }
+        public float ProductPrice { get; set; } 
 
-        //Variavel do tipo int para o codigo, o tipo int gera numeros inteniros
-        public int ProductCodigo { get; set; }
-        
     }
 }

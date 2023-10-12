@@ -12,45 +12,45 @@ namespace EstudosApi.Service
 {
     public class CategoryService : ICategoryService
     {
-        public readonly ICategoryService categoryService;
-        public CategoryService(ICategoryService _categoryService)
+        public readonly ICategoryRepositorio categoryRepository;
+        public CategoryService(ICategoryRepositorio _categoryRepository)
         {
-            categoryService = _categoryService;
+            categoryRepository = _categoryRepository;
         }
 
         public async Task<CategoryModel> Adicionar(CategoryDataModel categoryDataModel)
         {
-            return await categoryService.Adicionar(categoryDataModel);
+            return await categoryRepository.Adicionar(categoryDataModel);
         }
 
-        public async Task<CategoryModel> Atualizar(CategoryDataModel categoryDataModel, int codigo)
+        public async Task<CategoryModel> Atualizar(CategoryDataModel categoryDataModel, int id)
         {
-            return await categoryService.Atualizar(categoryDataModel, codigo);
+            return await categoryRepository.Atualizar(categoryDataModel, id);
         }
 
-        public async Task<CategoryModel> BuscarPorCodigo(int codigo)
+        public async Task<CategoryModel> BuscarPorId(int id)
         {
-            return await categoryService.BuscarPorCodigo(codigo);
+            return await categoryRepository.BuscarPorId(id);
         }
 
         public async Task<CategoryModel> BuscarPorName(string name)
         {
-            return await categoryService.BuscarPorName(name);
+            return await categoryRepository.BuscarPorName(name);
         }
 
         public async Task<List<CategoryModel>> BuscarPorStatus(CategoryStatusEnum status)
         {
-            return await categoryService.BuscarPorStatus(status);
+            return await categoryRepository.BuscarPorStatus(status);
         }
 
         public async Task<List<CategoryModel>> BuscarTodos()
         {
-            return await categoryService.BuscarTodos();
+            return await categoryRepository.BuscarTodos();
         }
 
-        public async Task<bool> Deletar(int codigo)
+        public async Task<bool> Deletar(int id)
         {
-            return await categoryService.Deletar(codigo);
+            return await categoryRepository.Deletar(id);
         }
     }
 }

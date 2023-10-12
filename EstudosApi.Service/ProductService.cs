@@ -18,9 +18,9 @@ namespace EstudosApi.Service
             productRepositorio = _productRepositorio;
         }
 
-        public async Task<List<ProductModel>> BuscarTodos(ProductDataModel productDataModel)
+        public async Task<List<ProductModel>> BuscarProdutos(ProductDataModel productDataModel)
         {
-            return await productRepositorio.BuscarTodos(productDataModel);
+            return await productRepositorio.BuscarProdutos(productDataModel);
         }
 
         public async Task<ProductModel> Adicionar(ProductDataModel productDataModel)

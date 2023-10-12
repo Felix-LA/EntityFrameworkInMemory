@@ -1,6 +1,10 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "7SHVew+O2rm7/1C5DvcyLwBurrbL4UUOtdBdXcDZ2NgbkFGN1XYmvcBiJEM6HxAocBzXVE3bfuCs1b4xRHoREA==",
+=======
+  "dgSpecHash": "yvLTr0n7LIZEbdD2bdUc37SM/nrxWzhGYviMXI0KgCwGSsNsCYHIvRK0LkYamrtn947r5NFCOP4Ltyf5fwpckQ==",
+>>>>>>> cc1698e9d206a3daef1fe75fbbfb16b844866465
   "success": true,
   "projectFilePath": "E:\\C#\\EntityFrameworkInMemory\\EntityFrameworkInMemory\\EntityFrameworkInMemory.csproj",
   "expectedPackageFiles": [
