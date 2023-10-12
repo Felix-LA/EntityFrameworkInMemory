@@ -35,9 +35,9 @@ namespace EntityFrameworkInMemory.Controllers
 
         [HttpGet]
         [Route("Category/BuscarPorCodigo")]
-        public async Task<IActionResult> BuscarPorCodigo(int codigo)
+        public async Task<IActionResult> BuscarPorId(int id)
         {
-            CategoryModel categoryModel = await categoryService.BuscarPorCodigo(codigo);
+            CategoryModel categoryModel = await categoryService.BuscarPorId(id);
             return Ok(categoryModel);
         }
 
@@ -59,19 +59,19 @@ namespace EntityFrameworkInMemory.Controllers
 
         [HttpPut]
         [Route("Category/Atualizar")]
-        public async Task<IActionResult> Atualizar (CategoryDataModel categoryDataModel, int codigo)
+        public async Task<IActionResult> Atualizar (CategoryDataModel categoryDataModel, int id)
         {
-            categoryDataModel.Codigo = codigo;
-            CategoryModel categoryModel = await categoryService.Atualizar(categoryDataModel, codigo);
+            categoryDataModel.Id = id;
+            CategoryModel categoryModel = await categoryService.Atualizar(categoryDataModel, id);
 
             return Ok(categoryModel);
         }
 
         [HttpDelete]
         [Route("Category/Delete")]
-        public async Task<IActionResult> Delete(int codigo)
+        public async Task<IActionResult> Delete(int id)
         {
-            bool Apagar = await categoryService.Deletar(codigo);
+            bool Apagar = await categoryService.Deletar(id);
             return Ok(Apagar);
         }
     }

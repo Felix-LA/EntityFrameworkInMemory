@@ -9,6 +9,5 @@ namespace EstudosApi.Domain.Models
         public int CategoryId { get; set; }
         public string CategoryName { get; set; }
         public CategoryStatusEnum CategoryStatus { get; set; }
-        public int CategoryCodigo { get; set; }
     }
 }

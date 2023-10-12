@@ -22,7 +22,6 @@ namespace EntityFrameworkInMemory.Repositorios
 
             categoryModel.CategoryName = categoryDataModel.Name;
             categoryModel.CategoryStatus = categoryDataModel.Status;
-            categoryModel.CategoryCodigo = categoryDataModel.Codigo;
 
             await dBContext.Category.AddAsync(categoryModel);
             await dBContext.SaveChangesAsync();
@@ -35,9 +34,9 @@ namespace EntityFrameworkInMemory.Repositorios
             return await dBContext.Category.ToListAsync();
         }
 
-        public async Task<CategoryModel> BuscarPorCodigo(int codigo)
+        public async Task<CategoryModel> BuscarPorId(int id)
         {
-            return await dBContext.Category.FirstOrDefaultAsync(x => x.CategoryCodigo.Equals(codigo));
+            return await dBContext.Category.FirstOrDefaultAsync(x => x.CategoryId.Equals(id));
         }
 
         public async Task<CategoryModel> BuscarPorName(string name)
@@ -50,11 +49,11 @@ namespace EntityFrameworkInMemory.Repositorios
             return await dBContext.Category.Where(x => x.CategoryStatus.Equals(status)).ToListAsync();
         }
 
-        public async Task<bool> Deletar(int codigo)
+        public async Task<bool> Deletar(int id)
         {
-            CategoryModel buscarCategoryPorCodigo = await BuscarPorCodigo(codigo);
+            CategoryModel buscarCategoryPorCodigo = await BuscarPorId(id);
 
-            if (BuscarPorCodigo == null)
+            if (BuscarPorId == null)
             {
                 throw new Exception("Categoria nao Encontrada");
             }
@@ -65,11 +64,11 @@ namespace EntityFrameworkInMemory.Repositorios
             return true;
         }
 
-        public async Task<CategoryModel> Atualizar(CategoryDataModel categoryDataModel, int codigo)
+        public async Task<CategoryModel> Atualizar(CategoryDataModel categoryDataModel, int id)
         {
-            CategoryModel buscarCategoryPorCodigo = await BuscarPorCodigo(codigo);
+            CategoryModel buscarCategoryPorCodigo = await BuscarPorId(id);
 
-            if (BuscarPorCodigo == null)
+            if (BuscarPorId == null)
             {
                 throw new Exception("Categoria nao Encontrada");
             }
