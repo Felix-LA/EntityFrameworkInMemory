@@ -1,11 +1,6 @@
 ﻿using EstudosApi.Domain.DataModel;
 using EstudosApi.Domain.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Routing;
-using Microsoft.EntityFrameworkCore;
-using System.Xml.Linq;
-using EstudosApi;
 using EstudosApi.Domain.Interfaces;
 
 //verbosidade de API -- fullrest api
@@ -14,7 +9,7 @@ using EstudosApi.Domain.Interfaces;
 
 namespace EntityFrameworkInMemory.Controllers
 {
-    
+
     [ApiController]
 
     public class ProductController : ControllerBase
@@ -37,13 +32,13 @@ namespace EntityFrameworkInMemory.Controllers
             return Ok(productModel);
         }
 
-        //[HttpPost]
-        //[Route("Product/BuscarPorId")]
-        //public async Task<IActionResult> BuscarPorId(int id)
-        //{
-        //    ProductModel productModel = await productService.BuscarProdutosPorId(id);
-        //    return Ok(productModel);
-        //}
+        [HttpPost]
+        [Route("Product/BuscarPorId")]
+        public async Task<IActionResult> BuscarPorId(int id)
+        {
+            ProductModel productModel = await productService.BuscarProdutosPorId(id);
+            return Ok(productModel);
+        }
 
         //[HttpPost]
         //[Route("Product/BuscarPorNome")]

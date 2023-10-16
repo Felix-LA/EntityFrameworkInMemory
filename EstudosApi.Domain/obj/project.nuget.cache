@@ -1,11 +1,5 @@
 {
   "version": 2,
-<<<<<<< HEAD
-  "dgSpecHash": "iLx79vLoCk6+JzXLUYc/ooCJGSwYuJH8bm0pO8K0MJUVsAaX22qhRFezDq5IvafhosJrBG4farlddRWELR9tSQ==",
-  "success": true,
-  "projectFilePath": "E:\\C#\\EntityFrameworkInMemory\\EstudosApi.Domain\\EstudosApi.Domain.csproj",
-  "expectedPackageFiles": [],
-=======
   "dgSpecHash": "F+mkYUt+PGPRVdGPGK+2LIrG+2nnmHYahGlGcDJU0DgXnsuwp1fu21E9tkxrL9VNaGxc1Q/ci/RMO3nL0wChQA==",
   "success": true,
   "projectFilePath": "D:\\C#\\SLN-EntityFrameworkInMemory\\EstudosApi.Domain\\EstudosApi.Domain.csproj",
@@ -31,6 +25,12 @@
     "C:\\Users\\tatia\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.1\\system.diagnostics.diagnosticsource.6.0.1.nupkg.sha512",
     "C:\\Users\\tatia\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
   ],
->>>>>>> cc1698e9d206a3daef1fe75fbbfb16b844866465
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problema ao ler o arquivo de cache D:\\C#\\SLN-EntityFrameworkInMemory\\EstudosApi.Domain\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
