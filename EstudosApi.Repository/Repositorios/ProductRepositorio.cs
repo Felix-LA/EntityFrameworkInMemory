@@ -22,7 +22,7 @@ namespace EntityFrameworkInMemory.Repositorios
             {
                 return await dBContext.Products.Where(x => x.ProductName.Equals(productDataModel.Name)).ToListAsync();
             }
-            else if (productDataModel.Id != null) {
+            else if (productDataModel.Id > 0) {
                 return await dBContext.Products.Where(x => x.ProductId.Equals(productDataModel.Id)).ToListAsync();
             }
             else {

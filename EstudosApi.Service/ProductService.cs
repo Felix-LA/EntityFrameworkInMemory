@@ -23,6 +23,17 @@ namespace EstudosApi.Service
             return await productRepositorio.BuscarProdutos(productDataModel);
         }
 
+        public async Task<ProductModel> BuscarProdutosPorId(ProductDataModel productDataModel)
+        {
+            var list = await productRepositorio.BuscarProdutos(productDataModel);
+            return list.FirstOrDefault();
+        }
+
+        public async Task<List<ProductModel>> BuscarProdutosPorNome(ProductDataModel productDataModel)
+        {
+            return await productRepositorio.BuscarProdutos(productDataModel);
+        }
+
         public async Task<ProductModel> Adicionar(ProductDataModel productDataModel)
         {
             return await productRepositorio.Adicionar(productDataModel);
