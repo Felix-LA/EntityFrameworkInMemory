@@ -33,23 +33,23 @@ namespace EntityFrameworkInMemory.Controllers
             return Ok(categoryModel);
         }
 
-        //[HttpGet]
-        //[Route("Category/BuscarPorCodigo")]
-        //public async Task<IActionResult> BuscarPorId(CategoryDataModel categoryDataModel)
-        //{
-        //    CategoryModel categoryModel = await categoryService.BuscarCategoria(categoryDataModel);
-        //    return Ok(categoryModel);
-        //}
+        [HttpGet]
+        [Route("Category/BuscarPorCodigo")]
+        public async Task<IActionResult> BuscarPorId(int id)
+        {
+            CategoryModel categoryModel = await categoryService.BuscarPorId(id);
+            return Ok(categoryModel);
+        }
 
         [HttpGet]
         [Route("Category/BuscarPorNome")]
-        public async Task<IActionResult> BuscarPorNome(CategoryDataModel categoryDataModel)
+        public async Task<IActionResult> BuscarPorNome(string name)
         {
-                List<CategoryModel> categoryModel = await categoryService.BuscarCategoria(categoryDataModel);
-                return Ok(categoryModel);
+            List<CategoryModel> categoryModel = await categoryService.BuscarPorName(name);
+            return Ok(categoryModel);
         }
 
-        //[HttpGet]
+        ////[HttpGet]
         //[Route("Category/BuscarPorStatus")]
         //public async Task<IActionResult> BuscarPorStatus (CategoryStatusEnum status)
         //{

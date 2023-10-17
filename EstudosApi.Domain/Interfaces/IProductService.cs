@@ -12,7 +12,7 @@ namespace EstudosApi.Domain.Interfaces
     {
         Task<List<ProductModel>> BuscarProdutos (ProductDataModel productDataModel);
         Task<ProductModel> BuscarProdutosPorId(int id);
-        //Task<List<ProductModel>> BuscarProdutosPorNome(ProductDataModel productDataModel);
+        Task<List<ProductModel>> BuscarProdutosPorNome(string name);
         Task<ProductModel> Adicionar(ProductDataModel produto);
     }
 }

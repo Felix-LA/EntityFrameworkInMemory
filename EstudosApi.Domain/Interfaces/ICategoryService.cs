@@ -13,6 +13,8 @@ namespace EstudosApi.Domain.Interfaces
     {
         Task<List<CategoryModel>> BuscarCategoria(CategoryDataModel categoryDataModel);
         Task<CategoryModel> Adicionar(CategoryDataModel categoryDataModel);
+        Task<CategoryModel> BuscarPorId(int id);
+        Task<List<CategoryModel>> BuscarPorName(string Name);
         //Task<CategoryModel> Atualizar(CategoryDataModel categoryDataModel, int id);
         //Task<bool> Deletar(int id);
     }

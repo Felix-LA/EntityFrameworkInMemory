@@ -40,21 +40,21 @@ namespace EntityFrameworkInMemory.Controllers
             return Ok(productModel);
         }
 
-        //[HttpPost]
-        //[Route("Product/BuscarPorNome")]
-        //public async Task<IActionResult> BuscarPorNome(string name)
-        //{
-        //    List<ProductModel> productModel = await productService.BuscarProdutosPorId(name);
-        //    return Ok(productModel);
-        //}
+        [HttpPost]
+        [Route("Product/BuscarPorNome")]
+        public async Task<IActionResult> BuscarPorNome(string name)
+        {
+            List<ProductModel> productModel = await productService.BuscarProdutosPorNome(name);
+            return Ok(productModel);
+        }
 
         //Adiconando Produto
         [HttpPost]
         [Route("Product/Adicionar")]
         public async Task<IActionResult> Adicionar(ProductDataModel productDataModel)
         {
-            ProductModel product = await productService.Adicionar(productDataModel);
-            return Ok(productDataModel);
+            ProductModel productModel = await productService.Adicionar(productDataModel);
+            return Ok(productModel);
         }
 
         ////Atualizando Produto

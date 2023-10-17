@@ -26,10 +26,11 @@ namespace EstudosApi.Service
             return list.FirstOrDefault();
         }
 
-        //public async Task<List<ProductModel>> BuscarProdutosPorNome(ProductDataModel productDataModel)
-        //{
-        //    return await productRepositorio.BuscarProdutos(productDataModel);
-        //}
+        public async Task<List<ProductModel>> BuscarProdutosPorNome(string name)
+        {
+            ProductDataModel productDataModel = new() { Name = name};
+            return await productRepositorio.BuscarProdutos(productDataModel);
+        }
 
         public async Task<ProductModel> Adicionar(ProductDataModel productDataModel)
         {

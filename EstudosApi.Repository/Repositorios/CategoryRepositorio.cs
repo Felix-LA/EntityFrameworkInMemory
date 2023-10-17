@@ -4,6 +4,7 @@ using EstudosApi.Domain.Enums;
 using EstudosApi.Domain.Models;
 using EstudosApi.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using System.Xml.Linq;
 
 namespace EntityFrameworkInMemory.Repositorios
 {
@@ -29,57 +30,59 @@ namespace EntityFrameworkInMemory.Repositorios
             return categoryModel;
         }
 
-        public async Task<List<CategoryModel>> BuscarTodos()
+        public async Task<List<CategoryModel>> BuscarCategoria(CategoryDataModel categoryDataModel)
         {
-            return await dBContext.Category.ToListAsync();
-        }
-
-        public async Task<CategoryModel> BuscarPorId(int id)
-        {
-            return await dBContext.Category.FirstOrDefaultAsync(x => x.CategoryId.Equals(id));
-        }
-
-        public async Task<CategoryModel> BuscarPorName(string name)
-        {
-            return await dBContext.Category.FirstOrDefaultAsync(x => x.CategoryName.Equals(name));
-        }
-
-        public async Task<List<CategoryModel>> BuscarPorStatus(CategoryStatusEnum status)
-        {
-            return await dBContext.Category.Where(x => x.CategoryStatus.Equals(status)).ToListAsync();
-        }
-
-        public async Task<bool> Deletar(int id)
-        {
-            CategoryModel buscarCategoryPorCodigo = await BuscarPorId(id);
-
-            if (BuscarPorId == null)
+            if (categoryDataModel.Id > 0)
             {
-                throw new Exception("Categoria nao Encontrada");
+                return await dBContext.Category.Where(x => x.CategoryId.Equals(categoryDataModel)).ToListAsync();
             }
-
-            dBContext.Category.Remove(buscarCategoryPorCodigo);
-            await dBContext.SaveChangesAsync();
-
-            return true;
-        }
-
-        public async Task<CategoryModel> Atualizar(CategoryDataModel categoryDataModel, int id)
-        {
-            CategoryModel buscarCategoryPorCodigo = await BuscarPorId(id);
-
-            if (BuscarPorId == null)
+            else if (categoryDataModel.Name != null)
             {
-                throw new Exception("Categoria nao Encontrada");
+                return await dBContext.Category.Where(x => x.CategoryName.Equals(categoryDataModel.Name)).ToListAsync();
             }
-
-            buscarCategoryPorCodigo.CategoryName = categoryDataModel.Name;
-            buscarCategoryPorCodigo.CategoryStatus = categoryDataModel.Status;
-
-            dBContext.Category.Update(buscarCategoryPorCodigo);
-            await dBContext.SaveChangesAsync();
-
-            return buscarCategoryPorCodigo;
+            else
+            {
+                return await dBContext.Category.ToListAsync();
+            }
+            
         }
+
+        //public async Task<List<CategoryModel>> BuscarPorStatus(CategoryStatusEnum status)
+        //{
+        //    return await dBContext.Category.Where(x => x.CategoryStatus.Equals(status)).ToListAsync();
+        //}
+
+        //public async Task<bool> Deletar(int id)
+        //{
+        //    CategoryModel buscarCategoryPorCodigo = await BuscarPorId(id);
+
+        //    if (BuscarPorId == null)
+        //    {
+        //        throw new Exception("Categoria nao Encontrada");
+        //    }
+
+        //    dBContext.Category.Remove(buscarCategoryPorCodigo);
+        //    await dBContext.SaveChangesAsync();
+
+        //    return true;
+        //}
+
+        //public async Task<CategoryModel> Atualizar(CategoryDataModel categoryDataModel, int id)
+        //{
+        //    CategoryModel buscarCategoryPorCodigo = await BuscarPorId(id);
+
+        //    if (BuscarPorId == null)
+        //    {
+        //        throw new Exception("Categoria nao Encontrada");
+        //    }
+
+        //    buscarCategoryPorCodigo.CategoryName = categoryDataModel.Name;
+        //    buscarCategoryPorCodigo.CategoryStatus = categoryDataModel.Status;
+
+        //    dBContext.Category.Update(buscarCategoryPorCodigo);
+        //    await dBContext.SaveChangesAsync();
+
+        //    return buscarCategoryPorCodigo;
+        //}
     }
 }

@@ -23,34 +23,38 @@ namespace EstudosApi.Service
             return await categoryRepository.Adicionar(categoryDataModel);
         }
 
-        public async Task<CategoryModel> Atualizar(CategoryDataModel categoryDataModel, int id)
+        public async Task<List<CategoryModel>> BuscarCategoria(CategoryDataModel categoryDataModel)
         {
-            return await categoryRepository.Atualizar(categoryDataModel, id);
+            return await categoryRepository.BuscarCategoria(categoryDataModel);
         }
 
         public async Task<CategoryModel> BuscarPorId(int id)
         {
-            return await categoryRepository.BuscarPorId(id);
+            CategoryDataModel categoryDataModel = new CategoryDataModel { Id = id };
+            var list = await categoryRepository.BuscarCategoria(categoryDataModel);
+            return list.FirstOrDefault();
         }
 
-        public async Task<CategoryModel> BuscarPorName(string name)
+        public async Task<List<CategoryModel>> BuscarPorName(string name)
         {
-            return await categoryRepository.BuscarPorName(name);
+            CategoryDataModel categoryDataModel = new CategoryDataModel { Name = name };
+            var list = await categoryRepository.BuscarCategoria(categoryDataModel);
+            return list.ToList();
         }
 
-        public async Task<List<CategoryModel>> BuscarPorStatus(CategoryStatusEnum status)
-        {
-            return await categoryRepository.BuscarPorStatus(status);
-        }
+        //public async Task<CategoryModel> Atualizar(CategoryDataModel categoryDataModel, int id)
+        //{
+        //    return await categoryRepository.Atualizar(categoryDataModel, id);
+        //}
 
-        public async Task<List<CategoryModel>> BuscarTodos()
-        {
-            return await categoryRepository.BuscarTodos();
-        }
+        //public async Task<List<CategoryModel>> BuscarPorStatus(CategoryStatusEnum status)
+        //{
+        //    return await categoryRepository.BuscarPorStatus(status);
+        //}
 
-        public async Task<bool> Deletar(int id)
-        {
-            return await categoryRepository.Deletar(id);
-        }
+        //public async Task<bool> Deletar(int id)
+        //{
+        //    return await categoryRepository.Deletar(id);
+        //}
     }
 }
