@@ -1,4 +1,5 @@
-﻿using EstudosApi.Domain.DataModel;
+﻿using EntityFrameworkInMemory.Repositorios;
+using EstudosApi.Domain.DataModel;
 using EstudosApi.Domain.Enums;
 using EstudosApi.Domain.Interfaces;
 using EstudosApi.Domain.Models;
@@ -12,33 +13,33 @@ namespace EstudosApi.Service
 {
     public class CategoryService : ICategoryService
     {
-        public readonly ICategoryRepositorio categoryRepository;
-        public CategoryService(ICategoryRepositorio _categoryRepository)
+        public readonly ICategoryRepositorio icategoryRepository;
+        public CategoryService(ICategoryRepositorio _icategoryRepository)
         {
-            categoryRepository = _categoryRepository;
+            icategoryRepository = _icategoryRepository;
         }
 
-        public async Task<CategoryModel> Adicionar(CategoryDataModel categoryDataModel)
+        public CategoryModel Adicionar(CategoryDataModel categoryDataModel)
         {
-            return await categoryRepository.Adicionar(categoryDataModel);
+            return icategoryRepository.Adicionar(categoryDataModel);
         }
 
-        public async Task<List<CategoryModel>> BuscarCategoria(CategoryDataModel categoryDataModel)
+        public List<CategoryModel> BuscarCategoria(CategoryDataModel categoryDataModel)
         {
-            return await categoryRepository.BuscarCategoria(categoryDataModel);
+            return  icategoryRepository.BuscarCategoria(categoryDataModel);
         }
 
-        public async Task<CategoryModel> BuscarPorId(int id)
+        public CategoryModel BuscarPorId(int id)
         {
             CategoryDataModel categoryDataModel = new CategoryDataModel { Id = id };
-            var list = await categoryRepository.BuscarCategoria(categoryDataModel);
+            var list =  icategoryRepository.BuscarCategoria(categoryDataModel);
             return list.FirstOrDefault();
         }
 
-        public async Task<List<CategoryModel>> BuscarPorName(string name)
+        public List<CategoryModel> BuscarPorName(string name)
         {
             CategoryDataModel categoryDataModel = new CategoryDataModel { Name = name };
-            var list = await categoryRepository.BuscarCategoria(categoryDataModel);
+            var list = icategoryRepository.BuscarCategoria(categoryDataModel);
             return list.ToList();
         }
 

@@ -4,6 +4,7 @@ using EstudosApi.Domain.Models;
 using EstudosApi.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.Xml.Linq;
+using System.Data.Entity;
 
 namespace EntityFrameworkInMemory.Repositorios
 {
@@ -16,17 +17,17 @@ namespace EntityFrameworkInMemory.Repositorios
             this.dBContext = _dBContext;
         }
 
-        public async Task<List<ProductModel>> BuscarProdutos(ProductDataModel productDataModel)
+        public List<ProductModel> BuscarProdutos(ProductDataModel productDataModel)
         {
-            if (productDataModel.Name != null)
+            if (!string.IsNullOrEmpty(productDataModel.Name))
             {
-                return await dBContext.Products.Where(x => x.ProductName.Equals(productDataModel.Name)).ToListAsync();
+                return dBContext.Products.Where(x => x.ProductName.Equals(productDataModel.Name)).ToList();
             }
             else if (productDataModel.Id > 0) {
-                return await dBContext.Products.Where(x => x.ProductId.Equals(productDataModel.Id)).ToListAsync();
+                return dBContext.Products.Where(x => x.ProductId.Equals(productDataModel.Id)).ToList();
             }
             else {
-                return await dBContext.Products.ToListAsync();
+                return dBContext.Products.ToList();
                 }
             }
 
@@ -47,7 +48,7 @@ namespace EntityFrameworkInMemory.Repositorios
         //    return true;
         //}
 
-        public async Task<ProductModel> Adicionar(ProductDataModel productDataModel)
+        public ProductModel Adicionar(ProductDataModel productDataModel)
         {
             ProductModel product = new ProductModel();
             
@@ -55,8 +56,8 @@ namespace EntityFrameworkInMemory.Repositorios
             product.ProductName = productDataModel.Name;
             product.ProductPrice = productDataModel.Price;
 
-            await dBContext.Products.AddAsync(product);
-            await dBContext.SaveChangesAsync();
+            dBContext.Products.Add(product);
+            dBContext.SaveChanges();
             
             return product;
         }

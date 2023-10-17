@@ -7,34 +7,34 @@ namespace EstudosApi.Service
 {
     public class ProductService : IProductService
     {
-        private readonly IProductRepositorio productRepositorio;
+        private readonly IProductRepositorio iproductRepositorio;
 
-        public ProductService (ProductRepositorio _productRepositorio)
+        public ProductService (IProductRepositorio _iproductRepositorio)
         {
-            productRepositorio = _productRepositorio;
+            iproductRepositorio = _iproductRepositorio;
         }
 
-        public async Task<List<ProductModel>> BuscarProdutos(ProductDataModel productDataModel)
+        public List<ProductModel> BuscarProdutos(ProductDataModel productDataModel)
         {
-            return await productRepositorio.BuscarProdutos(productDataModel);
+            return iproductRepositorio.BuscarProdutos(productDataModel);
         }
 
-        public async Task<ProductModel> BuscarProdutosPorId(int id)
+        public ProductModel BuscarProdutosPorId(int id)
         {
             ProductDataModel productDataModel = new (){Id = id};
-            var list = await productRepositorio.BuscarProdutos(productDataModel);
+            var list = iproductRepositorio.BuscarProdutos(productDataModel);
             return list.FirstOrDefault();
         }
 
-        public async Task<List<ProductModel>> BuscarProdutosPorNome(string name)
+        public List<ProductModel> BuscarProdutosPorNome(string name)
         {
             ProductDataModel productDataModel = new() { Name = name};
-            return await productRepositorio.BuscarProdutos(productDataModel);
+            return iproductRepositorio.BuscarProdutos(productDataModel);
         }
 
-        public async Task<ProductModel> Adicionar(ProductDataModel productDataModel)
+        public ProductModel Adicionar(ProductDataModel productDataModel)
         {
-            return await productRepositorio.Adicionar(productDataModel);
+            return iproductRepositorio.Adicionar(productDataModel);
         }
     }
 }

@@ -25,35 +25,35 @@ namespace EntityFrameworkInMemory.Controllers
         //Buscando todos os produtos
         [HttpPost]
         [Route("Product/BuscarTodos")]
-        public async Task<IActionResult> BuscarTodos(ProductDataModel productDataModel)
+        public IActionResult BuscarTodos(ProductDataModel productDataModel)
         {
-            List<ProductModel> productModel = await productService.BuscarProdutos(productDataModel);
+            List<ProductModel> productModel = productService.BuscarProdutos(productDataModel);
              
             return Ok(productModel);
         }
 
         [HttpPost]
         [Route("Product/BuscarPorId")]
-        public async Task<IActionResult> BuscarPorId(int id)
+        public IActionResult BuscarPorId(int id)
         {
-            ProductModel productModel = await productService.BuscarProdutosPorId(id);
+            ProductModel productModel = productService.BuscarProdutosPorId(id);
             return Ok(productModel);
         }
 
         [HttpPost]
         [Route("Product/BuscarPorNome")]
-        public async Task<IActionResult> BuscarPorNome(string name)
+        public IActionResult BuscarPorNome(string name)
         {
-            List<ProductModel> productModel = await productService.BuscarProdutosPorNome(name);
+            List<ProductModel> productModel = productService.BuscarProdutosPorNome(name);
             return Ok(productModel);
         }
 
         //Adiconando Produto
         [HttpPost]
         [Route("Product/Adicionar")]
-        public async Task<IActionResult> Adicionar(ProductDataModel productDataModel)
+        public IActionResult Adicionar(ProductDataModel productDataModel)
         {
-            ProductModel productModel = await productService.Adicionar(productDataModel);
+            ProductModel productModel = productService.Adicionar(productDataModel);
             return Ok(productModel);
         }
 

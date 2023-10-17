@@ -5,8 +5,8 @@ namespace EstudosApi.Domain.Interfaces
 {
     public interface IProductRepositorio
     {
-        Task<List<ProductModel>> BuscarProdutos(ProductDataModel productDataModel);
-        Task<ProductModel> Adicionar(ProductDataModel produto);
+        List<ProductModel> BuscarProdutos(ProductDataModel productDataModel);
+        ProductModel Adicionar(ProductDataModel produto);
         //Task<ProductModel> Atualizar(ProductDataModel atualizarProduto, int codigo);
         //Task<bool> Apagar(int codigo);
     }

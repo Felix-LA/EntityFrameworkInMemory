@@ -19,33 +19,33 @@ namespace EntityFrameworkInMemory.Controllers
 
         [HttpPost]
         [Route("Category/Adicionar")]
-        public async Task<IActionResult> Adicionar(CategoryDataModel adicionarCategory)
+        public IActionResult Adicionar(CategoryDataModel adicionarCategory)
         {
-            CategoryModel category = await categoryService.Adicionar(adicionarCategory);
+            CategoryModel category = categoryService.Adicionar(adicionarCategory);
             return Ok(category);
         }
 
         [HttpPost]
         [Route("Category/BuscarTodos")]
-        public async Task<IActionResult> BuscarCategoria(CategoryDataModel categoryDataModel)
+        public IActionResult BuscarCategoria(CategoryDataModel categoryDataModel)
         {
-            List<CategoryModel> categoryModel = await categoryService.BuscarCategoria(categoryDataModel);
+            List<CategoryModel> categoryModel = categoryService.BuscarCategoria(categoryDataModel);
             return Ok(categoryModel);
         }
 
         [HttpGet]
         [Route("Category/BuscarPorCodigo")]
-        public async Task<IActionResult> BuscarPorId(int id)
+        public IActionResult BuscarPorId(int id)
         {
-            CategoryModel categoryModel = await categoryService.BuscarPorId(id);
+            CategoryModel categoryModel = categoryService.BuscarPorId(id);
             return Ok(categoryModel);
         }
 
         [HttpGet]
         [Route("Category/BuscarPorNome")]
-        public async Task<IActionResult> BuscarPorNome(string name)
+        public IActionResult BuscarPorNome(string name)
         {
-            List<CategoryModel> categoryModel = await categoryService.BuscarPorName(name);
+            List<CategoryModel> categoryModel = categoryService.BuscarPorName(name);
             return Ok(categoryModel);
         }
 

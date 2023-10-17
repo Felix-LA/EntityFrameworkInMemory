@@ -11,10 +11,10 @@ namespace EstudosApi.Domain.Interfaces
 {
     public interface ICategoryService
     {
-        Task<List<CategoryModel>> BuscarCategoria(CategoryDataModel categoryDataModel);
-        Task<CategoryModel> Adicionar(CategoryDataModel categoryDataModel);
-        Task<CategoryModel> BuscarPorId(int id);
-        Task<List<CategoryModel>> BuscarPorName(string Name);
+        List<CategoryModel> BuscarCategoria(CategoryDataModel categoryDataModel);
+        CategoryModel Adicionar(CategoryDataModel categoryDataModel);
+        CategoryModel BuscarPorId(int id);
+        List<CategoryModel> BuscarPorName(string Name);
         //Task<CategoryModel> Atualizar(CategoryDataModel categoryDataModel, int id);
         //Task<bool> Deletar(int id);
     }

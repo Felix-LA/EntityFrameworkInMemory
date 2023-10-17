@@ -6,8 +6,8 @@ namespace EstudosApi.Domain.Interfaces
 {
     public interface ICategoryRepositorio
     {
-        Task<List<CategoryModel>> BuscarCategoria(CategoryDataModel categoryDataModel);
-        Task<CategoryModel> Adicionar(CategoryDataModel categoryDataModel);
+        List<CategoryModel> BuscarCategoria(CategoryDataModel categoryDataModel);
+        CategoryModel Adicionar(CategoryDataModel categoryDataModel);
         //Task<CategoryModel> Atualizar(CategoryDataModel categoryDataModel, int id);
         //Task<bool> Deletar(int id);
     }

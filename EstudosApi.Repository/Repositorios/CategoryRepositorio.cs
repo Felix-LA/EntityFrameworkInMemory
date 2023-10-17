@@ -17,32 +17,32 @@ namespace EntityFrameworkInMemory.Repositorios
             dBContext = _dbContext;
         }
 
-        public async Task<CategoryModel> Adicionar(CategoryDataModel categoryDataModel)
+        public CategoryModel Adicionar(CategoryDataModel categoryDataModel)
         {
             CategoryModel categoryModel = new CategoryModel();
 
             categoryModel.CategoryName = categoryDataModel.Name;
             categoryModel.CategoryStatus = categoryDataModel.Status;
 
-            await dBContext.Category.AddAsync(categoryModel);
-            await dBContext.SaveChangesAsync();
+            dBContext.Category.Add(categoryModel);
+            dBContext.SaveChanges();
 
             return categoryModel;
         }
 
-        public async Task<List<CategoryModel>> BuscarCategoria(CategoryDataModel categoryDataModel)
+        public List<CategoryModel> BuscarCategoria(CategoryDataModel categoryDataModel)
         {
             if (categoryDataModel.Id > 0)
             {
-                return await dBContext.Category.Where(x => x.CategoryId.Equals(categoryDataModel)).ToListAsync();
+                return dBContext.Category.Where(x => x.CategoryId.Equals(categoryDataModel)).ToList();
             }
             else if (categoryDataModel.Name != null)
             {
-                return await dBContext.Category.Where(x => x.CategoryName.Equals(categoryDataModel.Name)).ToListAsync();
+                return dBContext.Category.Where(x => x.CategoryName.Equals(categoryDataModel.Name)).ToList();
             }
             else
             {
-                return await dBContext.Category.ToListAsync();
+                return dBContext.Category.ToList();
             }
             
         }
