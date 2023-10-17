@@ -86,3 +86,9 @@ D:\C#\SLN-EntityFrameworkInMemory\EntityFrameworkInMemory\obj\Debug\net6.0\refin
 D:\C#\SLN-EntityFrameworkInMemory\EntityFrameworkInMemory\obj\Debug\net6.0\EntityFrameworkInMemory.pdb
 D:\C#\SLN-EntityFrameworkInMemory\EntityFrameworkInMemory\obj\Debug\net6.0\EntityFrameworkInMemory.genruntimeconfig.cache
 D:\C#\SLN-EntityFrameworkInMemory\EntityFrameworkInMemory\obj\Debug\net6.0\ref\EntityFrameworkInMemory.dll
+E:\C#\EntityFrameworkInMemory\EntityFrameworkInMemory\bin\Debug\net6.0\EstudosApi.Domain.dll
+E:\C#\EntityFrameworkInMemory\EntityFrameworkInMemory\bin\Debug\net6.0\EstudosApi.Repository.dll
+E:\C#\EntityFrameworkInMemory\EntityFrameworkInMemory\bin\Debug\net6.0\EstudosApi.Service.dll
+E:\C#\EntityFrameworkInMemory\EntityFrameworkInMemory\bin\Debug\net6.0\EstudosApi.Domain.pdb
+E:\C#\EntityFrameworkInMemory\EntityFrameworkInMemory\bin\Debug\net6.0\EstudosApi.Repository.pdb
+E:\C#\EntityFrameworkInMemory\EntityFrameworkInMemory\bin\Debug\net6.0\EstudosApi.Service.pdb

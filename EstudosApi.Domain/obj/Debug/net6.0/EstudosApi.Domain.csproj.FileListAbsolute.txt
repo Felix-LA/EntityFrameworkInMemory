@@ -12,3 +12,17 @@ D:\C#\SLN-EntityFrameworkInMemory\EstudosApi.Domain\obj\Debug\net6.0\ref\Estudos
 D:\C#\SLN-EntityFrameworkInMemory\EstudosApi.Domain\bin\Debug\net6.0\EstudosApi.Domain.runtimeconfig.json
 D:\C#\SLN-EntityFrameworkInMemory\EstudosApi.Domain\obj\Debug\net6.0\EstudosApi.Domain.csproj.AssemblyReference.cache
 D:\C#\SLN-EntityFrameworkInMemory\EstudosApi.Domain\obj\Debug\net6.0\EstudosApi.Domain.genruntimeconfig.cache
+E:\C#\EntityFrameworkInMemory\EstudosApi.Domain\bin\Debug\net6.0\EstudosApi.Domain.deps.json
+E:\C#\EntityFrameworkInMemory\EstudosApi.Domain\bin\Debug\net6.0\EstudosApi.Domain.runtimeconfig.json
+E:\C#\EntityFrameworkInMemory\EstudosApi.Domain\bin\Debug\net6.0\EstudosApi.Domain.dll
+E:\C#\EntityFrameworkInMemory\EstudosApi.Domain\bin\Debug\net6.0\EstudosApi.Domain.pdb
+E:\C#\EntityFrameworkInMemory\EstudosApi.Domain\obj\Debug\net6.0\EstudosApi.Domain.csproj.AssemblyReference.cache
+E:\C#\EntityFrameworkInMemory\EstudosApi.Domain\obj\Debug\net6.0\EstudosApi.Domain.GeneratedMSBuildEditorConfig.editorconfig
+E:\C#\EntityFrameworkInMemory\EstudosApi.Domain\obj\Debug\net6.0\EstudosApi.Domain.AssemblyInfoInputs.cache
+E:\C#\EntityFrameworkInMemory\EstudosApi.Domain\obj\Debug\net6.0\EstudosApi.Domain.AssemblyInfo.cs
+E:\C#\EntityFrameworkInMemory\EstudosApi.Domain\obj\Debug\net6.0\EstudosApi.Domain.csproj.CoreCompileInputs.cache
+E:\C#\EntityFrameworkInMemory\EstudosApi.Domain\obj\Debug\net6.0\EstudosApi.Domain.dll
+E:\C#\EntityFrameworkInMemory\EstudosApi.Domain\obj\Debug\net6.0\refint\EstudosApi.Domain.dll
+E:\C#\EntityFrameworkInMemory\EstudosApi.Domain\obj\Debug\net6.0\EstudosApi.Domain.pdb
+E:\C#\EntityFrameworkInMemory\EstudosApi.Domain\obj\Debug\net6.0\EstudosApi.Domain.genruntimeconfig.cache
+E:\C#\EntityFrameworkInMemory\EstudosApi.Domain\obj\Debug\net6.0\ref\EstudosApi.Domain.dll

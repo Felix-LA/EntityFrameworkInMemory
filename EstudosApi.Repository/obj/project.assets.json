@@ -831,16 +831,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-<<<<<<< HEAD
-            "E:\\C#\\EntityFrameworkInMemory\\EntityFrameworkInMemory\\EntityFrameworkInMemory.csproj": {
-              "projectPath": "E:\\C#\\EntityFrameworkInMemory\\EntityFrameworkInMemory\\EntityFrameworkInMemory.csproj"
-            },
             "E:\\C#\\EntityFrameworkInMemory\\EstudosApi.Domain\\EstudosApi.Domain.csproj": {
               "projectPath": "E:\\C#\\EntityFrameworkInMemory\\EstudosApi.Domain\\EstudosApi.Domain.csproj"
-=======
-            "D:\\C#\\SLN-EntityFrameworkInMemory\\EstudosApi.Domain\\EstudosApi.Domain.csproj": {
-              "projectPath": "D:\\C#\\SLN-EntityFrameworkInMemory\\EstudosApi.Domain\\EstudosApi.Domain.csproj"
->>>>>>> cc1698e9d206a3daef1fe75fbbfb16b844866465
             }
           }
         }
@@ -889,5 +881,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problema ao ler o arquivo de cache E:\\C#\\EntityFrameworkInMemory\\EstudosApi.Repository\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

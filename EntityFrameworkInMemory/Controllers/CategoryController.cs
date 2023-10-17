@@ -25,54 +25,54 @@ namespace EntityFrameworkInMemory.Controllers
             return Ok(category);
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("Category/BuscarTodos")]
-        public async Task<IActionResult> BuscarTodos()
+        public async Task<IActionResult> BuscarCategoria(CategoryDataModel categoryDataModel)
         {
-            List<CategoryModel> categoryModel = await categoryService.BuscarTodos();
+            List<CategoryModel> categoryModel = await categoryService.BuscarCategoria(categoryDataModel);
             return Ok(categoryModel);
         }
 
-        [HttpGet]
-        [Route("Category/BuscarPorCodigo")]
-        public async Task<IActionResult> BuscarPorId(int id)
-        {
-            CategoryModel categoryModel = await categoryService.BuscarPorId(id);
-            return Ok(categoryModel);
-        }
+        //[HttpGet]
+        //[Route("Category/BuscarPorCodigo")]
+        //public async Task<IActionResult> BuscarPorId(CategoryDataModel categoryDataModel)
+        //{
+        //    CategoryModel categoryModel = await categoryService.BuscarCategoria(categoryDataModel);
+        //    return Ok(categoryModel);
+        //}
 
         [HttpGet]
         [Route("Category/BuscarPorNome")]
-        public async Task<IActionResult> BuscarPorNome(string name)
+        public async Task<IActionResult> BuscarPorNome(CategoryDataModel categoryDataModel)
         {
-            CategoryModel categoryModel = await categoryService.BuscarPorName(name);
-            return Ok(categoryModel);
+                List<CategoryModel> categoryModel = await categoryService.BuscarCategoria(categoryDataModel);
+                return Ok(categoryModel);
         }
 
-        [HttpGet]
-        [Route("Category/BuscarPorStatus")]
-        public async Task<IActionResult> BuscarPorStatus (CategoryStatusEnum status)
-        {
-            List<CategoryModel> categoryModel = await categoryService.BuscarPorStatus(status);
-            return Ok(categoryModel);
-        }
+        //[HttpGet]
+        //[Route("Category/BuscarPorStatus")]
+        //public async Task<IActionResult> BuscarPorStatus (CategoryStatusEnum status)
+        //{
+        //    List<CategoryModel> categoryModel = await categoryService.BuscarPorStatus(status);
+        //    return Ok(categoryModel);
+        //}
 
-        [HttpPut]
-        [Route("Category/Atualizar")]
-        public async Task<IActionResult> Atualizar (CategoryDataModel categoryDataModel, int id)
-        {
-            categoryDataModel.Id = id;
-            CategoryModel categoryModel = await categoryService.Atualizar(categoryDataModel, id);
+        //[HttpPut]
+        //[Route("Category/Atualizar")]
+        //public async Task<IActionResult> Atualizar (CategoryDataModel categoryDataModel, int id)
+        //{
+        //    categoryDataModel.Id = id;
+        //    CategoryModel categoryModel = await categoryService.Atualizar(categoryDataModel, id);
 
-            return Ok(categoryModel);
-        }
+        //    return Ok(categoryModel);
+        //}
 
-        [HttpDelete]
-        [Route("Category/Delete")]
-        public async Task<IActionResult> Delete(int id)
-        {
-            bool Apagar = await categoryService.Deletar(id);
-            return Ok(Apagar);
-        }
+        //[HttpDelete]
+        //[Route("Category/Delete")]
+        //public async Task<IActionResult> Delete(int id)
+        //{
+        //    bool Apagar = await categoryService.Deletar(id);
+        //    return Ok(Apagar);
+        //}
     }
 }
