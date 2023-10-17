@@ -1,11 +1,6 @@
 ﻿using EstudosApi.Domain.DataModel;
 using EstudosApi.Domain.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Routing;
-using Microsoft.EntityFrameworkCore;
-using System.Xml.Linq;
-using EstudosApi;
 using EstudosApi.Domain.Interfaces;
 
 //verbosidade de API -- fullrest api
@@ -14,7 +9,7 @@ using EstudosApi.Domain.Interfaces;
 
 namespace EntityFrameworkInMemory.Controllers
 {
-    
+
     [ApiController]
 
     public class ProductController : ControllerBase
@@ -32,11 +27,27 @@ namespace EntityFrameworkInMemory.Controllers
         [Route("Product/BuscarTodos")]
         public async Task<IActionResult> BuscarTodos(ProductDataModel productDataModel)
         {
-            List<ProductModel> products = await productService.BuscarProdutos(productDataModel);
+            List<ProductModel> productModel = await productService.BuscarProdutos(productDataModel);
              
-            return Ok(products);
+            return Ok(productModel);
         }
-        
+
+        [HttpPost]
+        [Route("Product/BuscarPorId")]
+        public async Task<IActionResult> BuscarPorId(int id)
+        {
+            ProductModel productModel = await productService.BuscarProdutosPorId(id);
+            return Ok(productModel);
+        }
+
+        //[HttpPost]
+        //[Route("Product/BuscarPorNome")]
+        //public async Task<IActionResult> BuscarPorNome(string name)
+        //{
+        //    List<ProductModel> productModel = await productService.BuscarProdutosPorId(name);
+        //    return Ok(productModel);
+        //}
+
         //Adiconando Produto
         [HttpPost]
         [Route("Product/Adicionar")]

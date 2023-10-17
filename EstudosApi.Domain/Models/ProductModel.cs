@@ -7,7 +7,7 @@ namespace EstudosApi.Domain.Models
     {
         [Key]
 
-        //váriavel do tipo Guid para o id, o guid cria uma chave de caracteres aleatórias
+        //váriavel do tipo int como chave primária
         public int ProductId { get; set; }
 
         //váriavel do tipo sring para o nome, o tipo string é um aglomerado de letras, permite textos
@@ -17,6 +17,7 @@ namespace EstudosApi.Domain.Models
         [ForeignKey("CategoryId")]
         public CategoryModel ProductCategory { get; set; }
 
+        //váriavel do tipo int
         public int CategoryId { get; set; }
 
         //Váriavel do tipo float para o preço, o tipo float permite números quebrados

@@ -1,9 +1,10 @@
 {
   "format": 1,
   "restore": {
-    "E:\\C#\\EntityFrameworkInMemory\\EstudosApi.Repository\\EstudosApi.Repository.csproj": {}
+    "D:\\C#\\SLN-EntityFrameworkInMemory\\EstudosApi.Repository\\EstudosApi.Repository.csproj": {}
   },
   "projects": {
+<<<<<<< HEAD
     "E:\\C#\\EntityFrameworkInMemory\\EstudosApi.Domain\\EstudosApi.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -19,6 +20,19 @@
         "configFilePaths": [
           "C:\\Users\\felix\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+=======
+    "D:\\C#\\SLN-EntityFrameworkInMemory\\EstudosApi.Domain\\EstudosApi.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\C#\\SLN-EntityFrameworkInMemory\\EstudosApi.Domain\\EstudosApi.Domain.csproj",
+        "projectName": "EstudosApi.Domain",
+        "projectPath": "D:\\C#\\SLN-EntityFrameworkInMemory\\EstudosApi.Domain\\EstudosApi.Domain.csproj",
+        "packagesPath": "C:\\Users\\tatia\\.nuget\\packages\\",
+        "outputPath": "D:\\C#\\SLN-EntityFrameworkInMemory\\EstudosApi.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\tatia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> 782d47cb58aeb84f173e18295899fac74274a789
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,7 +40,10 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+<<<<<<< HEAD
           "C:\\Program Files\\dotnet\\library-packs": {},
+=======
+>>>>>>> 782d47cb58aeb84f173e18295899fac74274a789
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -76,6 +93,7 @@
               "privateAssets": "all"
             }
           },
+<<<<<<< HEAD
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
@@ -95,6 +113,23 @@
         "configFilePaths": [
           "C:\\Users\\felix\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+=======
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\C#\\SLN-EntityFrameworkInMemory\\EstudosApi.Repository\\EstudosApi.Repository.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\C#\\SLN-EntityFrameworkInMemory\\EstudosApi.Repository\\EstudosApi.Repository.csproj",
+        "projectName": "EstudosApi.Repository",
+        "projectPath": "D:\\C#\\SLN-EntityFrameworkInMemory\\EstudosApi.Repository\\EstudosApi.Repository.csproj",
+        "packagesPath": "C:\\Users\\tatia\\.nuget\\packages\\",
+        "outputPath": "D:\\C#\\SLN-EntityFrameworkInMemory\\EstudosApi.Repository\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\tatia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> 782d47cb58aeb84f173e18295899fac74274a789
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -102,15 +137,23 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+<<<<<<< HEAD
           "C:\\Program Files\\dotnet\\library-packs": {},
+=======
+>>>>>>> 782d47cb58aeb84f173e18295899fac74274a789
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
+<<<<<<< HEAD
               "E:\\C#\\EntityFrameworkInMemory\\EstudosApi.Domain\\EstudosApi.Domain.csproj": {
                 "projectPath": "E:\\C#\\EntityFrameworkInMemory\\EstudosApi.Domain\\EstudosApi.Domain.csproj"
+=======
+              "D:\\C#\\SLN-EntityFrameworkInMemory\\EstudosApi.Domain\\EstudosApi.Domain.csproj": {
+                "projectPath": "D:\\C#\\SLN-EntityFrameworkInMemory\\EstudosApi.Domain\\EstudosApi.Domain.csproj"
+>>>>>>> 782d47cb58aeb84f173e18295899fac74274a789
               }
             }
           }
@@ -125,6 +168,13 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+<<<<<<< HEAD
+=======
+            "EntityFramework": {
+              "target": "Package",
+              "version": "[6.4.4, )"
+            },
+>>>>>>> 782d47cb58aeb84f173e18295899fac74274a789
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[6.0.22, )"
@@ -156,7 +206,11 @@
               "privateAssets": "all"
             }
           },
+<<<<<<< HEAD
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+=======
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+>>>>>>> 782d47cb58aeb84f173e18295899fac74274a789
         }
       }
     }

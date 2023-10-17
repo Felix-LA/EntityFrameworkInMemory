@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "AKHl6d8RNhQikCYZNGkjEfGf6VwTI60y4HCztB0kaQd3GPwvMxpvseTsw9wmn9v4FylW6+ov3DaEbDWyujNVHg==",
   "success": true,
   "projectFilePath": "E:\\C#\\EntityFrameworkInMemory\\EstudosApi.Domain\\EstudosApi.Domain.csproj",
+=======
+  "dgSpecHash": "F+mkYUt+PGPRVdGPGK+2LIrG+2nnmHYahGlGcDJU0DgXnsuwp1fu21E9tkxrL9VNaGxc1Q/ci/RMO3nL0wChQA==",
+  "success": true,
+  "projectFilePath": "D:\\C#\\SLN-EntityFrameworkInMemory\\EstudosApi.Domain\\EstudosApi.Domain.csproj",
+>>>>>>> 782d47cb58aeb84f173e18295899fac74274a789
   "expectedPackageFiles": [
     "C:\\Users\\felix\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\felix\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.22\\microsoft.entityframeworkcore.6.0.22.nupkg.sha512",
@@ -30,7 +36,11 @@
       "code": "Undefined",
       "level": "Warning",
       "warningLevel": 1,
+<<<<<<< HEAD
       "message": "Problema ao ler o arquivo de cache E:\\C#\\EntityFrameworkInMemory\\EstudosApi.Domain\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
+=======
+      "message": "Problema ao ler o arquivo de cache D:\\C#\\SLN-EntityFrameworkInMemory\\EstudosApi.Domain\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
+>>>>>>> 782d47cb58aeb84f173e18295899fac74274a789
     }
   ]
 }

@@ -1,11 +1,7 @@
 ﻿using EstudosApi.Domain.Interfaces;
 using EstudosApi.Domain.DataModel;
 using EstudosApi.Domain.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using EntityFrameworkInMemory.Repositorios;
 
 namespace EstudosApi.Service
 {
@@ -13,7 +9,7 @@ namespace EstudosApi.Service
     {
         private readonly IProductRepositorio productRepositorio;
 
-        public ProductService (IProductRepositorio _productRepositorio)
+        public ProductService (ProductRepositorio _productRepositorio)
         {
             productRepositorio = _productRepositorio;
         }
@@ -22,6 +18,18 @@ namespace EstudosApi.Service
         {
             return await productRepositorio.BuscarProdutos(productDataModel);
         }
+
+        public async Task<ProductModel> BuscarProdutosPorId(int id)
+        {
+            ProductDataModel productDataModel = new (){Id = id};
+            var list = await productRepositorio.BuscarProdutos(productDataModel);
+            return list.FirstOrDefault();
+        }
+
+        //public async Task<List<ProductModel>> BuscarProdutosPorNome(ProductDataModel productDataModel)
+        //{
+        //    return await productRepositorio.BuscarProdutos(productDataModel);
+        //}
 
         public async Task<ProductModel> Adicionar(ProductDataModel productDataModel)
         {
