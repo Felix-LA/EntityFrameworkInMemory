@@ -76,13 +76,13 @@ namespace EntityFrameworkInMemory.Controllers
         //    return Ok(products);
         //}
 
-        ////Deletando produto
-        //[HttpDelete]
-        //[Route("Product/Delete")]
-        //public async Task<IActionResult> Delete(int codigo)
-        //{
-        //    bool apagado = await _productRepository.Apagar(codigo);
-        //    return Ok(apagado);
-        //}
+        //Deletando produto
+        [HttpDelete]
+        [Route("Product/Delete")]
+        public IActionResult Delete(int id)
+        {
+            ProductModel apagado =  productService.Apagar(id);
+            return Ok(apagado);
+        }
     }
 }

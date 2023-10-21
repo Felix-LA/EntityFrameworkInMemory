@@ -36,5 +36,17 @@ namespace EstudosApi.Service
         {
             return iproductRepositorio.Adicionar(productDataModel);
         }
+
+        public ProductModel Apagar(int id)
+        {
+            ProductModel buscarPorID = BuscarProdutosPorId(id);
+
+            if (buscarPorID == null)
+            {
+                throw new Exception("Produto nao Encontrada");
+            }
+
+            return buscarPorID;
+        }
     }
 }

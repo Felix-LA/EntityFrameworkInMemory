@@ -14,7 +14,7 @@ namespace EntityFrameworkInMemory.Repositorios
 
         public ProductRepositorio(DBContext _dBContext)
         {
-            this.dBContext = _dBContext;
+            dBContext = _dBContext;
         }
 
         public List<ProductModel> BuscarProdutos(ProductDataModel productDataModel)
@@ -31,22 +31,13 @@ namespace EntityFrameworkInMemory.Repositorios
                 }
             }
 
-        //public async Task<bool> Apagar(int codigo)
-        //{
-        //    ProductDataModel productDataModel = new ProductDataModel {Codigo= codigo };
-        //    var  buscaApagar = await BuscarTodos(productDataModel);
+        public bool Apagar (ProductModel productModel)
+        {
+            dBContext.Products.Remove(productModel);
+            dBContext.SaveChangesAsync();
 
-
-        //    if (!buscaApagar.Any())
-        //    {
-        //        throw new Exception($"Produto com o codigo {codigo} nao foi encontrado");
-        //    }
-
-        //    _dBContext.Products.Remove(productDataModel);
-        //    await _dBContext.SaveChangesAsync();
-
-        //    return true;
-        //}
+            return true;
+        }
 
         public ProductModel Adicionar(ProductDataModel productDataModel)
         {
