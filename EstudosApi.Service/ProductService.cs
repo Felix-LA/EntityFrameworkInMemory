@@ -1,7 +1,6 @@
 ﻿using EstudosApi.Domain.Interfaces;
 using EstudosApi.Domain.DataModel;
 using EstudosApi.Domain.Models;
-using EntityFrameworkInMemory.Repositorios;
 
 namespace EstudosApi.Service
 {
@@ -37,16 +36,9 @@ namespace EstudosApi.Service
             return iproductRepositorio.Adicionar(productDataModel);
         }
 
-        public ProductModel Apagar(int id)
+        public bool Apagar(int id)
         {
-            ProductModel buscarPorID = BuscarProdutosPorId(id);
-
-            if (buscarPorID == null)
-            {
-                throw new Exception("Produto nao Encontrada");
-            }
-
-            return buscarPorID;
+            return iproductRepositorio.Apagar(id);
         }
     }
 }

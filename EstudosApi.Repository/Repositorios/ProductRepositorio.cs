@@ -31,9 +31,18 @@ namespace EntityFrameworkInMemory.Repositorios
                 }
             }
 
-        public bool Apagar (ProductModel productModel)
+        public bool Apagar (int Id)
         {
-            dBContext.Products.Remove(productModel);
+
+            var apagarProduto = new ProductModel { ProductId = Id };
+
+            if(apagarProduto.ProductId < 0)
+            {
+                throw new Exception("Produto Não Encontrado");
+            }
+
+            dBContext.Products.Attach(apagarProduto);
+            dBContext.Products.Remove(apagarProduto);
             dBContext.SaveChangesAsync();
 
             return true;
