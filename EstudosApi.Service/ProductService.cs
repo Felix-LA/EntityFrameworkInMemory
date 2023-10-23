@@ -1,7 +1,6 @@
 ﻿using EstudosApi.Domain.Interfaces;
 using EstudosApi.Domain.DataModel;
 using EstudosApi.Domain.Models;
-using EntityFrameworkInMemory.Repositorios;
 
 namespace EstudosApi.Service
 {
