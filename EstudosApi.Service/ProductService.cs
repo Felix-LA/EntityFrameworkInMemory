@@ -36,6 +36,11 @@ namespace EstudosApi.Service
             return iproductRepositorio.Adicionar(productDataModel);
         }
 
+        public ProductModel Atualizar(ProductDataModel productDataModel, int id)
+        {
+            return iproductRepositorio.Atualizar(productDataModel, id);
+        }
+
         public bool Apagar(int id)
         {
             return iproductRepositorio.Apagar(id);

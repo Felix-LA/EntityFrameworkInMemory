@@ -57,22 +57,22 @@ namespace EntityFrameworkInMemory.Controllers
         //    return Ok(categoryModel);
         //}
 
-        //[HttpPut]
-        //[Route("Category/Atualizar")]
-        //public async Task<IActionResult> Atualizar (CategoryDataModel categoryDataModel, int id)
-        //{
-        //    categoryDataModel.Id = id;
-        //    CategoryModel categoryModel = await categoryService.Atualizar(categoryDataModel, id);
+        [HttpPut]
+        [Route("Category/Atualizar")]
+        public IActionResult Atualizar(CategoryDataModel categoryDataModel, int id)
+        {
+            categoryDataModel.Id = id;
+            CategoryModel categoryModel = categoryService.Atualizar(categoryDataModel, id);
 
-        //    return Ok(categoryModel);
-        //}
+            return Ok(categoryModel);
+        }
 
-        //[HttpDelete]
-        //[Route("Category/Delete")]
-        //public async Task<IActionResult> Delete(int id)
-        //{
-        //    bool Apagar = await categoryService.Deletar(id);
-        //    return Ok(Apagar);
-        //}
+        [HttpDelete]
+        [Route("Category/Delete")]
+        public IActionResult Delete(int id)
+        {
+            bool Apagar = categoryService.Deletar(id);
+            return Ok(Apagar);
+        }
     }
 }

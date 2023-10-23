@@ -52,37 +52,38 @@ namespace EntityFrameworkInMemory.Repositorios
         //    return await dBContext.Category.Where(x => x.CategoryStatus.Equals(status)).ToListAsync();
         //}
 
-        //public async Task<bool> Deletar(int id)
-        //{
-        //    CategoryModel buscarCategoryPorCodigo = await BuscarPorId(id);
+        public bool Deletar(int id)
+        {
+            var deletarCategoria = new CategoryModel { CategoryId = id };
 
-        //    if (BuscarPorId == null)
-        //    {
-        //        throw new Exception("Categoria nao Encontrada");
-        //    }
+            if (deletarCategoria.CategoryId < 0)
+            {
+                throw new Exception("Categoria nao Encontrada");
+            }
 
-        //    dBContext.Category.Remove(buscarCategoryPorCodigo);
-        //    await dBContext.SaveChangesAsync();
+            dBContext.Category.Attach(deletarCategoria);
+            dBContext.Category.Remove(deletarCategoria);
+            dBContext.SaveChanges();
 
-        //    return true;
-        //}
+            return true;
+        }
 
-        //public async Task<CategoryModel> Atualizar(CategoryDataModel categoryDataModel, int id)
-        //{
-        //    CategoryModel buscarCategoryPorCodigo = await BuscarPorId(id);
+        public CategoryModel Atualizar(CategoryDataModel categoryDataModel, int id)
+        {
+            var atualizarCategoria = dBContext.Category.FirstOrDefault(category => category.CategoryId == id);
 
-        //    if (BuscarPorId == null)
-        //    {
-        //        throw new Exception("Categoria nao Encontrada");
-        //    }
+            if (atualizarCategoria == null)
+            {
+                throw new Exception("Categoria nao Encontrada");
+            }
 
-        //    buscarCategoryPorCodigo.CategoryName = categoryDataModel.Name;
-        //    buscarCategoryPorCodigo.CategoryStatus = categoryDataModel.Status;
+            atualizarCategoria.CategoryName = categoryDataModel.Name;
+            atualizarCategoria.CategoryStatus = categoryDataModel.Status;
 
-        //    dBContext.Category.Update(buscarCategoryPorCodigo);
-        //    await dBContext.SaveChangesAsync();
+            dBContext.Category.Update(atualizarCategoria);
+            dBContext.SaveChanges();
 
-        //    return buscarCategoryPorCodigo;
-        //}
+            return atualizarCategoria;
+        }
     }
 }

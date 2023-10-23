@@ -62,22 +62,22 @@ namespace EntityFrameworkInMemory.Repositorios
             return product;
         }
 
-        //public async Task<ProductModel> Atualizar(ProductDataModel atualizarProduto, int codigo)
-        //{
-        //    ProductModel buscaProdutoPorCodigo = await BuscarTodos(codigo);
+        public ProductModel Atualizar(ProductDataModel productDataModel, int id)
+        {
+            var atualizarProduto = dBContext.Products.FirstOrDefault(product => product.ProductId == id);
 
-        //    if (BuscarPorCodigo == null)
-        //    {
-        //        throw new Exception("Produto nao localizado");
-        //    }
+            if (atualizarProduto == null)
+            {
+                throw new Exception("Produto nao localizado");
+            }
 
-        //    buscaProdutoPorCodigo.ProductName = atualizarProduto.Name;
-        //    buscaProdutoPorCodigo.ProductPrice = atualizarProduto.Price;
+            atualizarProduto.ProductName = productDataModel.Name;
+            atualizarProduto.ProductPrice = productDataModel.Price;
 
-        //    _dBContext.Products.Update(buscaProdutoPorCodigo);
-        //    await _dBContext.SaveChangesAsync();
+            dBContext.Products.Update(atualizarProduto);
+            dBContext.SaveChangesAsync();
 
-        //    return buscaProdutoPorCodigo;
-        //}
+            return atualizarProduto;
+        }
     }
 }

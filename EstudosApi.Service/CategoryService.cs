@@ -43,19 +43,19 @@ namespace EstudosApi.Service
             return list.ToList();
         }
 
-        //public async Task<CategoryModel> Atualizar(CategoryDataModel categoryDataModel, int id)
-        //{
-        //    return await categoryRepository.Atualizar(categoryDataModel, id);
-        //}
+        public CategoryModel Atualizar(CategoryDataModel categoryDataModel, int id)
+        {
+            return  icategoryRepository.Atualizar(categoryDataModel, id);
+        }
 
         //public async Task<List<CategoryModel>> BuscarPorStatus(CategoryStatusEnum status)
         //{
         //    return await categoryRepository.BuscarPorStatus(status);
         //}
 
-        //public async Task<bool> Deletar(int id)
-        //{
-        //    return await categoryRepository.Deletar(id);
-        //}
+        public bool Deletar(int id)
+        {
+            return  icategoryRepository.Deletar(id);
+        }
     }
 }

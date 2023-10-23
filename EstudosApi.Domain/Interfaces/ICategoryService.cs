@@ -15,7 +15,7 @@ namespace EstudosApi.Domain.Interfaces
         CategoryModel Adicionar(CategoryDataModel categoryDataModel);
         CategoryModel BuscarPorId(int id);
         List<CategoryModel> BuscarPorName(string Name);
-        //Task<CategoryModel> Atualizar(CategoryDataModel categoryDataModel, int id);
-        //Task<bool> Deletar(int id);
+        CategoryModel Atualizar(CategoryDataModel categoryDataModel, int id);
+        bool Deletar(int id);
     }
 }

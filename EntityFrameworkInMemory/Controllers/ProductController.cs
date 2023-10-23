@@ -54,15 +54,15 @@ namespace EntityFrameworkInMemory.Controllers
             return Ok(productModel);
         }
 
-        ////Atualizando Produto
-        //[HttpPut]
-        //[Route("Product/Atualizar")]
-        //public async Task<IActionResult> Atualizar(ProductDataModel productDataModel, int codigo)
-        //{
-        //    productDataModel.Codigo = codigo;
-        //    ProductModel product = await _productRepository.Atualizar(productDataModel, codigo);
-        //    return Ok(product);
-        //}
+        //Atualizando Produto
+        [HttpPut]
+        [Route("Product/Atualizar")]
+        public IActionResult Atualizar(ProductDataModel productDataModel, int id)
+        {
+            productDataModel.Id = id;
+            ProductModel product = productService.Atualizar(productDataModel, id);
+            return Ok(product);
+        }
 
         ////Fazendo uma busca de produtos por nome
         //[HttpGet]

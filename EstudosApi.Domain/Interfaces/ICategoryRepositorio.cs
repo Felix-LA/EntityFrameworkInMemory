@@ -8,7 +8,7 @@ namespace EstudosApi.Domain.Interfaces
     {
         List<CategoryModel> BuscarCategoria(CategoryDataModel categoryDataModel);
         CategoryModel Adicionar(CategoryDataModel categoryDataModel);
-        //Task<CategoryModel> Atualizar(CategoryDataModel categoryDataModel, int id);
-        //Task<bool> Deletar(int id);
+        CategoryModel Atualizar(CategoryDataModel categoryDataModel, int id);
+        bool Deletar(int id);
     }
 }

@@ -14,6 +14,7 @@ namespace EstudosApi.Domain.Interfaces
         ProductModel BuscarProdutosPorId(int id);
         List<ProductModel> BuscarProdutosPorNome(string name);
         ProductModel Adicionar(ProductDataModel produto);
+        ProductModel Atualizar(ProductDataModel produto, int id);
         bool Apagar(int id);
     }
 }
