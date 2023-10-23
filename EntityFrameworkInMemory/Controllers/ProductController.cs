@@ -3,9 +3,6 @@ using EstudosApi.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
 using EstudosApi.Domain.Interfaces;
 
-//verbosidade de API -- fullrest api
-//get byproductname -- usando where com context api net core
-
 
 namespace EntityFrameworkInMemory.Controllers
 {
@@ -81,7 +78,7 @@ namespace EntityFrameworkInMemory.Controllers
         [Route("Product/Delete")]
         public IActionResult Delete(int id)
         {
-            ProductModel apagado =  productService.Apagar(id);
+            bool apagado =  productService.Apagar(id);
             return Ok(apagado);
         }
     }

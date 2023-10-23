@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\EntityFrameworkInMemory",
+    "\\EntityFrameworkInMemory\\Controllers"
   ],
+  "SelectedNode": "\\EntityFrameworkInMemory\\Controllers\\ProductController.cs",
   "PreviewInSolutionExplorer": false
 }

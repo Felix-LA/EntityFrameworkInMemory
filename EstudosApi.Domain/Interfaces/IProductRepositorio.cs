@@ -8,6 +8,6 @@ namespace EstudosApi.Domain.Interfaces
         List<ProductModel> BuscarProdutos(ProductDataModel productDataModel);
         ProductModel Adicionar(ProductDataModel produto);
         //Task<ProductModel> Atualizar(ProductDataModel atualizarProduto, int codigo);
-        bool Apagar (ProductModel productModel);
+        bool Apagar (int Id);
     }
 }
