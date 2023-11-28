@@ -8,6 +8,6 @@ namespace EstudosApi.Domain.Models
         [Key]
         public int CategoryId { get; set; }
         public string CategoryName { get; set; }
-        public CategoryStatusEnum CategoryStatus { get; set; }
+        public StatusEnum CategoryStatus { get; set; }
     }
 }
