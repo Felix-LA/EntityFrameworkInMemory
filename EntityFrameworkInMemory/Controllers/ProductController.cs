@@ -84,10 +84,10 @@ namespace EntityFrameworkInMemory.Controllers
 
         [HttpPost]
         [Route("Product/Mensagem")]
-        public string Mensagem()
+        public IActionResult Mensagem()
         {
             string msg = "Mensagem";
-            return msg;
+            return Ok(msg);
         }
     }
 }
