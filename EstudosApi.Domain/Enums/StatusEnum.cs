@@ -1,6 +1,6 @@
 ﻿namespace EstudosApi.Domain.Enums
 {
-    public enum CategoryStatusEnum
+    public enum StatusEnum
     {
         Inativo = 0,
         Ativo =1,

@@ -17,5 +17,6 @@ namespace EstudosApi.Repository.DataBaseContext
         //Estamos intanciando e depois conectando a ele.
         public DbSet<ProductModel> Products { get; set; }
         public DbSet<CategoryModel> Category { get; set; }
+        public DbSet<MarcaModel> Marca { get; set; }
     }
 }
