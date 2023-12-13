@@ -81,5 +81,13 @@ namespace EntityFrameworkInMemory.Controllers
             bool apagado =  productService.Apagar(id);
             return Ok(apagado);
         }
+
+        [HttpPost]
+        [Route("Product/Mensagem")]
+        public string Mensagem()
+        {
+            string msg = "Mensagem";
+            return msg;
+        }
     }
 }
