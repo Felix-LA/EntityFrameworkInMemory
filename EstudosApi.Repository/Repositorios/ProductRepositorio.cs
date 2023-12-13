@@ -21,7 +21,7 @@ namespace EntityFrameworkInMemory.Repositorios
         {
             if (!string.IsNullOrEmpty(productDataModel.Name))
             {
-                return dBContext.Products.Where(x => x.ProductName.Equals(productDataModel.Name)).ToList();
+                return dBContext.Products.Where(x => x.ProductName.Contains(productDataModel.Name)).ToList();
             }
             else if (productDataModel.Id > 0) {
                 return dBContext.Products.Where(x => x.ProductId.Equals(productDataModel.Id)).ToList();

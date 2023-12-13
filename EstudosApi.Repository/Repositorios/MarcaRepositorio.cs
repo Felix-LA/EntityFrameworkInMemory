@@ -38,7 +38,7 @@ namespace EntityFrameworkInMemory.Repositorios
             }
             else if (marcaDataModel.Name != null)
             {
-                return dBContext.Marca.Where(x => x.MarcaName.Equals(marcaDataModel.Name)).ToList();
+                return dBContext.Marca.Where(x => x.MarcaName.Contains(marcaDataModel.Name)).ToList();
             }
             else
             {

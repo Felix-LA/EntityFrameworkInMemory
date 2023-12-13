@@ -38,7 +38,7 @@ namespace EntityFrameworkInMemory.Repositorios
             }
             else if (categoryDataModel.Name != null)
             {
-                return dBContext.Category.Where(x => x.CategoryName.Equals(categoryDataModel.Name)).ToList();
+                return dBContext.Category.Where(x => x.CategoryName.Contains(categoryDataModel.Name)).ToList();
             }
             else
             {
